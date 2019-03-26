@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>kiwi的个人博客</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://kiwismart.top/"/>
+  <updated>2019-03-25T10:30:57.759Z</updated>
+  <id>http://kiwismart.top/</id>
+  
+  <author>
+    <name>kiwi</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>springboot跨域</title>
+    <link href="http://kiwismart.top/2019/03/25/springboot%E8%B7%A8%E5%9F%9F/"/>
+    <id>http://kiwismart.top/2019/03/25/springboot跨域/</id>
+    <published>2019-03-25T06:21:39.000Z</published>
+    <updated>2019-03-25T10:30:57.759Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;center&gt;&lt;img src=&quot;/2019/03/25/springboot跨域/cross.jpg&quot; alt=&quot;cross&quot;&gt;&lt;/center&gt;&lt;/p&gt;
+&lt;h4 id=&quot;什么是跨域&quot;&gt;&lt;a href=&quot;#什么是跨域&quot; class=&quot;headerlink&quot; title=
+      
+    
+    </summary>
+    
+      <category term="springboot" scheme="http://kiwismart.top/categories/springboot/"/>
+    
+      <category term="Java" scheme="http://kiwismart.top/categories/springboot/Java/"/>
+    
+    
+      <category term="Java" scheme="http://kiwismart.top/tags/Java/"/>
+    
+      <category term="springboot" scheme="http://kiwismart.top/tags/springboot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mvnw &amp;&amp; mvnw.cmd</title>
+    <link href="http://kiwismart.top/2019/03/19/mvnw-mvnw-cmd/"/>
+    <id>http://kiwismart.top/2019/03/19/mvnw-mvnw-cmd/</id>
+    <published>2019-03-19T03:47:19.000Z</published>
+    <updated>2019-03-19T05:54:17.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;当创见一个Spring Boot的应用程序时，在程序的根目录下可以看到 &lt;code&gt;mvnw&lt;/code&gt; 和 &lt;code&gt;mvnw.cmd&lt;/code&gt; 这个两个文件，那么这两个文件各自的用途是什么呢？&lt;/p&gt;
+&lt;h4 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; clas
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="http://kiwismart.top/categories/Java/"/>
+    
+    
+      <category term="mvn" scheme="http://kiwismart.top/tags/mvn/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redis数据结构</title>
+    <link href="http://kiwismart.top/2019/03/15/Redis%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <id>http://kiwismart.top/2019/03/15/Redis数据结构/</id>
+    <published>2019-03-15T02:15:25.000Z</published>
+    <updated>2019-03-15T08:13:52.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;center&gt;&lt;img src=&quot;/2019/03/15/Redis数据结构/redis-data-structure-types.jpeg&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;br&gt;    如上图所示，Redis有5个基本数据结构(string、list、hash、se
+      
+    
+    </summary>
+    
+      <category term="redis" scheme="http://kiwismart.top/categories/redis/"/>
+    
+    
+      <category term="redis" scheme="http://kiwismart.top/tags/redis/"/>
+    
+      <category term="数据结构" scheme="http://kiwismart.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS 7.0 关闭firewalld防火墙指令 及更换Iptables防火墙</title>
+    <link href="http://kiwismart.top/2019/03/14/CentOS%207.0%20%E5%85%B3%E9%97%ADfirewalld%E9%98%B2%E7%81%AB%E5%A2%99%E6%8C%87%E4%BB%A4%20%E5%8F%8A%E6%9B%B4%E6%8D%A2Iptables%E9%98%B2%E7%81%AB%E5%A2%99/"/>
+    <id>http://kiwismart.top/2019/03/14/CentOS 7.0 关闭firewalld防火墙指令 及更换Iptables防火墙/</id>
+    <published>2019-03-14T09:29:55.000Z</published>
+    <updated>2019-03-14T09:49:04.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;Disable-Firewalld-Service&quot;&gt;&lt;a href=&quot;#Disable-Firewalld-Service&quot; class=&quot;headerlink&quot; title=&quot;Disable Firewalld Service.&quot;&gt;&lt;/a&gt;Disable Fi
+      
+    
+    </summary>
+    
+      <category term="服务器" scheme="http://kiwismart.top/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    
+      <category term="centos" scheme="http://kiwismart.top/tags/centos/"/>
+    
+      <category term="防火墙" scheme="http://kiwismart.top/tags/%E9%98%B2%E7%81%AB%E5%A2%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Protobuf简介</title>
+    <link href="http://kiwismart.top/2018/11/05/Protobuf%E7%AE%80%E4%BB%8B/"/>
+    <id>http://kiwismart.top/2018/11/05/Protobuf简介/</id>
+    <published>2018-11-05T06:21:33.000Z</published>
+    <updated>2018-11-05T06:59:27.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;center&gt;&lt;img src=&quot;/2018/11/05/Protobuf简介/protobuf.png&quot; alt=&quot;protobuf&quot;&gt;&lt;/center&gt;&lt;br&gt;protobuf是google提供的一个开源序列化框架，类似于XML，JSON这样的数据表示语言，其最大的特
+      
+    
+    </summary>
+    
+      <category term="protobuf" scheme="http://kiwismart.top/categories/protobuf/"/>
+    
+    
+      <category term="protobuf" scheme="http://kiwismart.top/tags/protobuf/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac使用技巧总结</title>
+    <link href="http://kiwismart.top/2018/11/01/Mac%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%E6%80%BB%E7%BB%93/"/>
+    <id>http://kiwismart.top/2018/11/01/Mac使用技巧总结/</id>
+    <published>2018-11-01T08:53:06.000Z</published>
+    <updated>2019-03-14T10:07:59.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;center&gt;&lt;img src=&quot;/2018/11/01/Mac使用技巧总结/2018-MacBook-Pro-Logic-800x514.jpg&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;/p&gt;
+&lt;h4 id=&quot;显示-隐藏文件夹&quot;&gt;&lt;a href=&quot;#显示-隐藏文件夹&quot; cl
+      
+    
+    </summary>
+    
+      <category term="Mac" scheme="http://kiwismart.top/categories/Mac/"/>
+    
+    
+      <category term="mac" scheme="http://kiwismart.top/tags/mac/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTTP、TCP、UDP、Socket、HTTPS区别</title>
+    <link href="http://kiwismart.top/2018/10/11/HTTP%E3%80%81TCP%E3%80%81UDP%E3%80%81Socket%E3%80%81HTTPS%E5%8C%BA%E5%88%AB/"/>
+    <id>http://kiwismart.top/2018/10/11/HTTP、TCP、UDP、Socket、HTTPS区别/</id>
+    <published>2018-10-11T03:28:29.000Z</published>
+    <updated>2018-10-11T06:46:56.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;center&gt;&lt;img src=&quot;was-ist-http-t.jpg&quot; alt=&quot;&quot;&gt;&lt;/center&gt;
+
+&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;TC
+      
+    
+    </summary>
+    
+      <category term="http" scheme="http://kiwismart.top/categories/http/"/>
+    
+    
+      <category term="http" scheme="http://kiwismart.top/tags/http/"/>
+    
+      <category term="tcp" scheme="http://kiwismart.top/tags/tcp/"/>
+    
+      <category term="udp" scheme="http://kiwismart.top/tags/udp/"/>
+    
+      <category term="socket" scheme="http://kiwismart.top/tags/socket/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mvn常用命令大全</title>
+    <link href="http://kiwismart.top/2018/10/10/mvn%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/"/>
+    <id>http://kiwismart.top/2018/10/10/mvn常用命令大全/</id>
+    <published>2018-10-10T01:46:45.000Z</published>
+    <updated>2018-10-11T05:31:50.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;center&gt;&lt;img src=&quot;/2018/10/10/mvn常用命令大全/maven-logo.jpg&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;br&gt;maven命令除了常用的几个，大部分经常记不住，整理一下，方便查询。&lt;br&gt;maven 命令的格式为 mvn [plugi
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="http://kiwismart.top/categories/Java/"/>
+    
+    
+      <category term="mvn" scheme="http://kiwismart.top/tags/mvn/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java开发规范</title>
+    <link href="http://kiwismart.top/2018/10/08/Java%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/"/>
+    <id>http://kiwismart.top/2018/10/08/Java开发规范/</id>
+    <published>2018-10-08T06:01:59.000Z</published>
+    <updated>2018-10-11T05:33:47.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;center&gt;&lt;img src=&quot;/2018/10/08/Java开发规范/images.jpeg&quot; alt=&quot;&quot;&gt;&lt;/center&gt;
+
+&lt;p&gt;前言&lt;/p&gt;
+&lt;p&gt;本文章是将网上PDF版本的&lt;a href=&quot;https://github.com/alibaba/p3c/blob
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="http://kiwismart.top/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="http://kiwismart.top/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>缓存那些事（四）</title>
+    <link href="http://kiwismart.top/2018/10/08/%E7%BC%93%E5%AD%98%E9%82%A3%E4%BA%9B%E4%BA%8B%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
+    <id>http://kiwismart.top/2018/10/08/缓存那些事（四）/</id>
+    <published>2018-10-08T03:25:46.000Z</published>
+    <updated>2018-10-11T06:48:16.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;缓存那些事（四）- Redis优化建议&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;center&gt;&lt;img src=&quot;/2018/10/08/缓存那些事（四）/20160502211355.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;/p&gt;
+&lt;p&gt;&lt;center&gt;图1
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="http://kiwismart.top/categories/Java/"/>
+    
+    
+      <category term="redis" scheme="http://kiwismart.top/tags/redis/"/>
+    
+      <category term="缓存" scheme="http://kiwismart.top/tags/%E7%BC%93%E5%AD%98/"/>
+    
+      <category term="缓存穿透" scheme="http://kiwismart.top/tags/%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F/"/>
+    
+      <category term="缓存并发" scheme="http://kiwismart.top/tags/%E7%BC%93%E5%AD%98%E5%B9%B6%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>缓存那些事（三）</title>
+    <link href="http://kiwismart.top/2018/10/08/%E7%BC%93%E5%AD%98%E9%82%A3%E4%BA%9B%E4%BA%8B%EF%BC%88%E4%B8%89%EF%BC%89/"/>
+    <id>http://kiwismart.top/2018/10/08/缓存那些事（三）/</id>
+    <published>2018-10-08T02:39:46.000Z</published>
+    <updated>2018-10-08T03:24:16.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本文主要介绍在MacOS及centos7.x上如何安装及配置Redis&lt;/p&gt;
+&lt;h3 id=&quot;Mac&quot;&gt;&lt;a href=&quot;#Mac&quot; class=&quot;headerlink&quot; title=&quot;Mac&quot;&gt;&lt;/a&gt;Mac&lt;/h3&gt;&lt;h4 id=&quot;安装redis&quot;&gt;&lt;a href=&quot;
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="http://kiwismart.top/categories/Java/"/>
+    
+    
+      <category term="redis" scheme="http://kiwismart.top/tags/redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>缓存那些事（二）</title>
+    <link href="http://kiwismart.top/2018/10/08/%E7%BC%93%E5%AD%98%E9%82%A3%E4%BA%9B%E4%BA%8B%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+    <id>http://kiwismart.top/2018/10/08/缓存那些事（二）/</id>
+    <published>2018-10-08T01:35:59.000Z</published>
+    <updated>2018-10-08T02:07:32.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;center&gt;&lt;div style=&quot;width:180px;height:180px&quot;&gt;&lt;img src=&quot;/2018/10/08/缓存那些事（二）/redis.svg&quot; alt=&quot;redis&quot;&gt;&lt;/div&gt;&lt;/center&gt;
+
+&lt;h4 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="http://kiwismart.top/categories/Java/"/>
+    
+    
+      <category term="redis" scheme="http://kiwismart.top/tags/redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>缓存那些事（一）</title>
+    <link href="http://kiwismart.top/2018/09/29/%E7%BC%93%E5%AD%98%E9%82%A3%E4%BA%9B%E4%BA%8B%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>http://kiwismart.top/2018/09/29/缓存那些事（一）/</id>
+    <published>2018-09-29T02:30:31.000Z</published>
+    <updated>2018-09-29T06:13:54.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在日常的开发工作中程序猿会用到各种各样的缓存软件，不管是Redis还是Memcached抑或是其它类型的缓存软件，都会遇到&lt;strong&gt;缓存穿透&lt;/strong&gt;、&lt;strong&gt;缓存并发&lt;/strong&gt;、&lt;strong&gt;缓存失效&lt;/strong&gt;三类问题&lt;/p&gt;
+&lt;h
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="http://kiwismart.top/categories/Java/"/>
+    
+    
+      <category term="redis" scheme="http://kiwismart.top/tags/redis/"/>
+    
+      <category term="缓存" scheme="http://kiwismart.top/tags/%E7%BC%93%E5%AD%98/"/>
+    
+      <category term="缓存穿透" scheme="http://kiwismart.top/tags/%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F/"/>
+    
+      <category term="缓存并发" scheme="http://kiwismart.top/tags/%E7%BC%93%E5%AD%98%E5%B9%B6%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JVM内存溢出分类及说明</title>
+    <link href="http://kiwismart.top/2018/09/27/JVM%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%88%86%E7%B1%BB%E5%8F%8A%E8%AF%B4%E6%98%8E/"/>
+    <id>http://kiwismart.top/2018/09/27/JVM内存溢出分类及说明/</id>
+    <published>2018-09-27T08:21:31.000Z</published>
+    <updated>2018-10-11T05:50:40.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;center&gt;&lt;img src=&quot;/2018/09/27/JVM内存溢出分类及说明/images.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;
+
+&lt;p&gt;Java程序猿在日常的开发工作中会遇到各种各样的内存溢出问题，本文中摘录了几种内存溢出的场景及其说明，即便于排查具体内存溢出的原
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="http://kiwismart.top/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="http://kiwismart.top/tags/Java/"/>
+    
+      <category term="JVM" scheme="http://kiwismart.top/tags/JVM/"/>
+    
+      <category term="内存溢出" scheme="http://kiwismart.top/tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JVM内存结构</title>
+    <link href="http://kiwismart.top/2018/09/27/JVM%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/"/>
+    <id>http://kiwismart.top/2018/09/27/JVM内存结构/</id>
+    <published>2018-09-27T06:44:44.000Z</published>
+    <updated>2018-10-11T05:38:17.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;center&gt;&lt;img src=&quot;/2018/09/27/JVM内存结构/jvm_binary_code_3x2_1200x800-100758585-large.jpg&quot; alt=&quot;&quot;&gt;&lt;/center&gt;
+
+
+&lt;p&gt;Java程序猿在日常的开发工作中会遇到各种各样的内存溢出问题
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="http://kiwismart.top/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="http://kiwismart.top/tags/Java/"/>
+    
+      <category term="JVM" scheme="http://kiwismart.top/tags/JVM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>springboot定时器</title>
+    <link href="http://kiwismart.top/2018/09/18/springboot%E5%AE%9A%E6%97%B6%E5%99%A8/"/>
+    <id>http://kiwismart.top/2018/09/18/springboot定时器/</id>
+    <published>2018-09-18T08:04:57.000Z</published>
+    <updated>2018-10-11T05:52:29.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;center&gt;&lt;img src=&quot;/2018/09/18/springboot定时器/schedule-web-orig_orig.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;/p&gt;
+&lt;h4 id=&quot;描述&quot;&gt;&lt;a href=&quot;#描述&quot; class=&quot;headerlink&quot;
+      
+    
+    </summary>
+    
+      <category term="springboot" scheme="http://kiwismart.top/categories/springboot/"/>
+    
+    
+      <category term="Java" scheme="http://kiwismart.top/tags/Java/"/>
+    
+      <category term="springboot" scheme="http://kiwismart.top/tags/springboot/"/>
+    
+      <category term="定时器" scheme="http://kiwismart.top/tags/%E5%AE%9A%E6%97%B6%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>centos安装node.js&amp;更换默认软件源</title>
+    <link href="http://kiwismart.top/2018/09/18/centos%E5%AE%89%E8%A3%85node-js-%E6%9B%B4%E6%8D%A2%E9%BB%98%E8%AE%A4%E8%BD%AF%E4%BB%B6%E6%BA%90/"/>
+    <id>http://kiwismart.top/2018/09/18/centos安装node-js-更换默认软件源/</id>
+    <published>2018-09-18T03:17:51.000Z</published>
+    <updated>2018-10-11T05:54:20.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;center&gt;&lt;img src=&quot;/2018/09/18/centos安装node-js-更换默认软件源/generate-pdf-using-nodejs-thumbnail.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;/p&gt;
+&lt;h3 id=&quot;安装EPEL库&quot;&gt;&lt;a h
+      
+    
+    </summary>
+    
+    
+      <category term="node" scheme="http://kiwismart.top/tags/node/"/>
+    
+      <category term="npm" scheme="http://kiwismart.top/tags/npm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Homebrew更换软件源</title>
+    <link href="http://kiwismart.top/2018/09/17/Homebrew%E6%9B%B4%E6%8D%A2%E8%BD%AF%E4%BB%B6%E6%BA%90/"/>
+    <id>http://kiwismart.top/2018/09/17/Homebrew更换软件源/</id>
+    <published>2018-09-17T08:46:42.000Z</published>
+    <updated>2018-10-11T05:56:10.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;center&gt;&lt;img src=&quot;/2018/09/17/Homebrew更换软件源/1*Xjef3Zcg4T1x-tJIYHWFbg.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;br&gt;homebrew主要分两部分：git repo（位于GitHub）和二进制bottle
+      
+    
+    </summary>
+    
+      <category term="中间件" scheme="http://kiwismart.top/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
+    
+    
+      <category term="homebrew" scheme="http://kiwismart.top/tags/homebrew/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>centos6.x 安装python3.6&amp;pip3</title>
+    <link href="http://kiwismart.top/2018/09/17/centos6-x-%E5%AE%89%E8%A3%85python3-6-pip3/"/>
+    <id>http://kiwismart.top/2018/09/17/centos6-x-安装python3-6-pip3/</id>
+    <published>2018-09-17T03:41:54.000Z</published>
+    <updated>2018-10-11T05:58:15.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;center&gt;&lt;img src=&quot;/2018/09/17/centos6-x-安装python3-6-pip3/images-3.jpeg&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;/p&gt;
+&lt;h3 id=&quot;安装环境准备&quot;&gt;&lt;a href=&quot;#安装环境准备&quot; class=&quot;hea
+      
+    
+    </summary>
+    
+    
+      <category term="python3.6" scheme="http://kiwismart.top/tags/python3-6/"/>
+    
+      <category term="pip3" scheme="http://kiwismart.top/tags/pip3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MYSQL数据库设计规范与原则</title>
+    <link href="http://kiwismart.top/2018/09/13/MYSQL%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83%E4%B8%8E%E5%8E%9F%E5%88%99/"/>
+    <id>http://kiwismart.top/2018/09/13/MYSQL数据库设计规范与原则/</id>
+    <published>2018-09-13T02:02:22.000Z</published>
+    <updated>2018-09-13T02:23:23.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;center&gt;&lt;img src=&quot;/2018/09/13/MYSQL数据库设计规范与原则/includes-mysql.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;
+
+&lt;h3 id=&quot;mysql数据库设计规范&quot;&gt;&lt;a href=&quot;#mysql数据库设计规范&quot; class=&quot;hea
+      
+    
+    </summary>
+    
+      <category term="数据库" scheme="http://kiwismart.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="mysql" scheme="http://kiwismart.top/tags/mysql/"/>
+    
+      <category term="数据库" scheme="http://kiwismart.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+</feed>

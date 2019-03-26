@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-bounce.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=SF-Mono-Regular:300,300italic,400,400italic,700,700italic|SF-Mono-Bold:300,300italic,400,400italic,700,700italic|SF-Mono-Regular:300,300italic,400,400italic,700,700italic|SF-Mono-Bold:300,300italic,400,400italic,700,700italic|SF-Mono-Regular:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="redis,缓存,缓存穿透,缓存并发," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="kiwi的个人博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="缓存那些事（四）- Redis优化建议  图1图1是默认安装的redis在启动时给出的几条warning信息，已经告诉程序猿一些优化建议。 基本优化建议尽量使用短的key当然在精简的同时，不要完了key的“见名知意”。对于value有些也可精简，比如性别使用0、1 避免使用keys *keys *这个命令是阻塞的，即操作执行期间，其它任何命令在你的实例中都无法执行。当redis中key数据量小时到">
+<meta name="keywords" content="redis,缓存,缓存穿透,缓存并发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="缓存那些事（四）">
+<meta property="og:url" content="http://kiwismart.top/2018/10/08/缓存那些事（四）/index.html">
+<meta property="og:site_name" content="kiwi的个人博客">
+<meta property="og:description" content="缓存那些事（四）- Redis优化建议  图1图1是默认安装的redis在启动时给出的几条warning信息，已经告诉程序猿一些优化建议。 基本优化建议尽量使用短的key当然在精简的同时，不要完了key的“见名知意”。对于value有些也可精简，比如性别使用0、1 避免使用keys *keys *这个命令是阻塞的，即操作执行期间，其它任何命令在你的实例中都无法执行。当redis中key数据量小时到">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://kiwismart.top/2018/10/08/缓存那些事（四）/20160502211355.png">
+<meta property="og:image" content="http://kiwismart.top/2018/10/08/缓存那些事（四）/20160427172349.png">
+<meta property="og:updated_time" content="2018-10-11T06:48:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="缓存那些事（四）">
+<meta name="twitter:description" content="缓存那些事（四）- Redis优化建议  图1图1是默认安装的redis在启动时给出的几条warning信息，已经告诉程序猿一些优化建议。 基本优化建议尽量使用短的key当然在精简的同时，不要完了key的“见名知意”。对于value有些也可精简，比如性别使用0、1 避免使用keys *keys *这个命令是阻塞的，即操作执行期间，其它任何命令在你的实例中都无法执行。当redis中key数据量小时到">
+<meta name="twitter:image" content="http://kiwismart.top/2018/10/08/缓存那些事（四）/20160502211355.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"always","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://kiwismart.top/2018/10/08/缓存那些事（四）/"/>
+
+
+
+
+
+  <title>缓存那些事（四） | kiwi的个人博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1274382859&web_id=1274382859" language="JavaScript"></script>
+  </div>
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">kiwi的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://kiwismart.top/2018/10/08/缓存那些事（四）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kiwi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kiwi的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">缓存那些事（四）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-08T11:25:46+08:00">
+                2018-10-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1,897
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  7
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>缓存那些事（四）- Redis优化建议</strong></p>
+<p><center><img src="/2018/10/08/缓存那些事（四）/20160502211355.png" alt=""></center></p>
+<p><center>图1</center><br>图1是默认安装的redis在启动时给出的几条warning信息，已经告诉程序猿一些优化建议。</p>
+<h3 id="基本优化建议"><a href="#基本优化建议" class="headerlink" title="基本优化建议"></a>基本优化建议</h3><h4 id="尽量使用短的key"><a href="#尽量使用短的key" class="headerlink" title="尽量使用短的key"></a>尽量使用短的key</h4><p>当然在精简的同时，不要完了key的“见名知意”。对于value有些也可精简，比如性别使用0、1</p>
+<h4 id="避免使用keys"><a href="#避免使用keys" class="headerlink" title="避免使用keys *"></a>避免使用<code>keys *</code></h4><p><code>keys *</code>这个命令是<code>阻塞的</code>，即操作执行期间，其它任何命令在你的实例中都无法执行。当redis中key数据量小时到无所谓，数据量大就很糟糕了。所以我们应该避免去使用这个命令。可以去使用<code>SCAN</code>来代替。</p>
+<h4 id="在存到Redis之前先把你的数据压缩下"><a href="#在存到Redis之前先把你的数据压缩下" class="headerlink" title="在存到Redis之前先把你的数据压缩下"></a>在存到Redis之前先把你的数据压缩下</h4><p>redis为每种数据类型都提供了两种内部编码方式，在不同的情况下redis会自动调整合适的编码方式</p>
+<h4 id="设置-key-有效期"><a href="#设置-key-有效期" class="headerlink" title="设置 key 有效期"></a>设置 key 有效期</h4><p>我们应该尽可能的利用key有效期。比如一些临时数据（短信校验码），过了有效期Redis就会自动为你清除</p>
+<h4 id="选择回收策略-maxmemory-policy"><a href="#选择回收策略-maxmemory-policy" class="headerlink" title="选择回收策略(maxmemory-policy)"></a>选择回收策略(maxmemory-policy)</h4><p>当Redis的<code>实例空间</code>被<code>填满</code>了之后，将会尝试<code>回收一部分key</code>。根据你的使用方式，强烈建议使用<code>volatile-lru</code>（默认）策略——前提是你<code>对key已经设置了超时时间</code>。但如果你运行的是一些类似于<code>cache</code>的东西，并且没有对 key 设置超时机制，可以考虑使用<code>allkeys-lru</code>回收机制，<a href="https://redis.io/topics/lru-cache#eviction-policies" target="_blank" rel="noopener">具体讲解查看</a> ,<code>maxmemory-samples 3</code>是说每次进行淘汰的时候 会随机抽取<code>3</code>个key 从里面淘汰最不经常使用的（默认选项）</p>
+<blockquote>
+<p>maxmemory-policy 六种方式 :<br>volatile-lru：只对设置了过期时间的key进行LRU（默认值）<br>allkeys-lru ： 是从所有key里 删除 不经常使用的key<br>volatile-random：随机删除即将过期key<br>allkeys-random：随机删除<br>volatile-ttl ： 删除即将过期的<br>noeviction ： 永不过期，返回错误</p>
+</blockquote>
+<h4 id="使用bit位级别操作和byte字节级别操作来减少不必要的内存使用"><a href="#使用bit位级别操作和byte字节级别操作来减少不必要的内存使用" class="headerlink" title="使用bit位级别操作和byte字节级别操作来减少不必要的内存使用"></a>使用<code>bit</code>位级别操作和<code>byte</code>字节级别操作来减少不必要的内存使用</h4><pre><code>&gt; bit位级别操作：`GETRANGE`, `SETRANGE`, `GETBIT` and `SETBIT`
+byte字节级别操作：`GETRANGE` and `SETRANGE`
+</code></pre><h4 id="尽可能地使用hashes哈希存储"><a href="#尽可能地使用hashes哈希存储" class="headerlink" title="尽可能地使用hashes哈希存储"></a>尽可能地使用hashes哈希存储</h4><h4 id="当业务场景不需要数据持久化时，关闭所有的持久化方式可以获得最佳的性能"><a href="#当业务场景不需要数据持久化时，关闭所有的持久化方式可以获得最佳的性能" class="headerlink" title="当业务场景不需要数据持久化时，关闭所有的持久化方式可以获得最佳的性能"></a>当业务场景不需要数据持久化时，关闭所有的持久化方式可以获得最佳的性能</h4><h4 id="想要一次添加多条数据的时候可以使用管道"><a href="#想要一次添加多条数据的时候可以使用管道" class="headerlink" title="想要一次添加多条数据的时候可以使用管道"></a>想要一次添加多条数据的时候可以使用管道</h4><h4 id="限制redis的内存大小"><a href="#限制redis的内存大小" class="headerlink" title="限制redis的内存大小"></a>限制redis的内存大小</h4><pre><code>&gt; 64位系统不限制内存，32位系统默认最多使用3GB内存。数据量不可预估，并且内存也有限的话，尽量限制下redis使用的内存大小，这样可以避免redis使用`swap分区`或者出现`OOM`错误。（使用`swap分区`，性能较低，如果限制了内存，当到达指定内存之后就不能添加数据了，否则会报`OOM`错误。可以设置`maxmemory-policy`，内存不足时删除数据。）
+</code></pre><ul>
+<li>SLOWLOG [get/reset/len]<blockquote>
+<p><code>slowlog-log-slower-than</code> 它决定要对执行时间大于多少微秒(<code>microsecond，1秒 = 1,000,000 微秒</code>)的命令进行记录。<br><code>slowlog-max-len</code>它决定 <code>slowlog</code> 最多能保存多少条日志，当发现redis性能下降的时候可以查看下是哪些命令导致的。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="优化实例分析"><a href="#优化实例分析" class="headerlink" title="优化实例分析"></a>优化实例分析</h3><h4 id="管道（Pipeline）的使用"><a href="#管道（Pipeline）的使用" class="headerlink" title="管道（Pipeline）的使用"></a>管道（<code>Pipeline</code>）的使用</h4><p><center><img src="/2018/10/08/缓存那些事（四）/20160427172349.png" alt="管道"></center></p>
+<p><center>图2</center><br>图2展示了多条数据时用和不用管到在连接方便的消耗对比。<br>redis的管道功能在命令行中没有，但是redis是支持管道的，在java的客户端(<code>jedis</code>)中是可以使用的。<br><strong>示例代码</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 不使用管道初始化1W条数据</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">NOTUsePipeline</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    Jedis jedis = JedisUtil.getJedis();</span><br><span class="line">    <span class="keyword">long</span> start_time = System.currentTimeMillis();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</span><br><span class="line">        jedis.set(<span class="string">"aa_"</span>+i, i+<span class="string">""</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(System.currentTimeMillis()-start_time);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 使用管道初始化1W条数据</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">usePipeline</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    Jedis jedis = JedisUtil.getJedis();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">long</span> start_time = System.currentTimeMillis();</span><br><span class="line">    Pipeline pipelined = jedis.pipelined();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</span><br><span class="line">        pipelined.set(<span class="string">"cc_"</span>+i, i+<span class="string">""</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    pipelined.sync();<span class="comment">//执行管道中的命令</span></span><br><span class="line">    System.out.println(System.currentTimeMillis()-start_time);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Hash的使用"><a href="#Hash的使用" class="headerlink" title="Hash的使用"></a>Hash的使用</h4><p>例如要存储一个用户信息对象数据，包含以下信息：<br>key为用户ID，value为用户对象（姓名，年龄，性别，生日等）如果用普通的key/value结构来存储，一般有以下2种存储方式:</p>
+<ul>
+<li>将用户ID作为查找key,把其他信息封装成一个对象以<code>序列化</code>的方式存储<br>缺点：增加了<code>序列化</code>/<code>反序列化</code>的开销，引入复杂适应系统（<code>Complex adaptive system</code>，简称<code>CAS</code>）修改其中一项信息时，需要把整个对象取回，并且修改操作需要对并发进行保护。</li>
+<li>用户信息对象有多少成员就存成多少个key-value对<br>虽然省去了序列化开销和并发问题，但是用户ID为重复存储。</li>
+</ul>
+<p>Redis提供的<code>Hash</code>很好的解决了这个问题，提供了直接存取这个Map成员的接口;Key仍然是用户ID, value是一个Map，这个Map的key是成员的属性名，value是属性值。( 内部实现：<code>Redis Hashd</code>的<code>Value</code>内部有2种不同实现，Hash的成员比较少时Redis为了节省内存会采用类似<code>一维数组</code>的方式来<code>紧凑存储</code>，而不会采用真正的<code>HashMap</code>结构，对应的<code>value redisObject</code>的<code>encoding</code>为<code>zipmap</code>,当成员数量增大时会自动转成真正的<code>HashMap</code>,此时<code>encoding</code>为<code>ht</code> )。</p>
+<h4 id="宿主服务器优化"><a href="#宿主服务器优化" class="headerlink" title="宿主服务器优化"></a>宿主服务器优化</h4><p>本文开头的图1显示在启动时出现了三个warning，对于这三个warning可以采取redis宿主优化的方式解决</p>
+<ul>
+<li>修改linux中<code>TCP</code>监听的<code>最大容纳</code>数量<br>在高并发环境下你需要一个高<code>backlog</code>值来避免慢客户端连接问题。注意Linux内核默默地将这个值减小到<code>/proc/sys/net/core/somaxconn</code>的值，所以需要确认增大<code>somaxconn</code>和<code>tcp_max_syn_backlog</code>两个值来达到想要的效果。<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo 511 &gt; /proc/sys/net/core/somaxconn</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>注意</strong>：这个参数并不是限制redis的最大链接数。如果想限制redis的最大连接数需要修改<code>maxclients</code></p>
+<ul>
+<li>修改linux内核<code>内存分配策略</code><br>redis在备份数据的时候，会<code>fork</code>出一个<code>子进程</code>，理论上child进程所占用的内存和parent是一样的，比如parent占用的内存为8G，这个时候也要同样分配8G的内存给child,如果内存无法负担，往往会造成redis服务器的down机或者<code>IO</code>负载过高，效率下降;所以内存分配策略应该设置为 1（表示内核允许分配所有的物理内存，而不管当前的内存状态如何）;内存分配策略有三种(可选值：0、1、2)<ul>
+<li>0 表示内核将检查是否有足够的可用内存供应用进程使用；如果有足够的可用内存，内存申请允许；否则，内存申请失败，并把错误返回给应用进程</li>
+<li>1 不管需要多少内存，都允许申请</li>
+<li>2 只允许分配物理内存和交换内存的大小(交换内存一般是物理内存的一半)</li>
+</ul>
+</li>
+<li>关闭<code>Transparent Huge Pages</code>(<code>THP</code>)<br>THP会造成内存锁影响redis性能，建议关闭</li>
+</ul>
+<blockquote>
+<p>Transparent HugePages:用来提高内存管理的性能,Transparent Huge Pages在32位的RHEL 6中是不支持的,执行命令 <code>echo never &gt; /sys/kernel/mm/ransparent_hugepage/enabled</code>,把这条命令添加到这个文件中<code>/etc/rc.local</code>。</p>
+</blockquote>
+<p><strong>参考资料</strong></p>
+<ul>
+<li><a href="https://blog.xiaoxiaomo.com/2016/05/02/Redis-%E4%BC%98%E5%8C%96%E8%AF%A6%E8%A7%A3/" target="_blank" rel="noopener">Redis–优化详解</a></li>
+<li><a href="http://www.redis.cn/" target="_blank" rel="noopener">redis.cn</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/redis/" rel="tag"># redis</a>
+          
+            <a href="/tags/缓存/" rel="tag"># 缓存</a>
+          
+            <a href="/tags/缓存穿透/" rel="tag"># 缓存穿透</a>
+          
+            <a href="/tags/缓存并发/" rel="tag"># 缓存并发</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/08/缓存那些事（三）/" rel="next" title="缓存那些事（三）">
+                <i class="fa fa-chevron-left"></i> 缓存那些事（三）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/08/Java开发规范/" rel="prev" title="Java开发规范">
+                Java开发规范 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="kiwi" />
+          <p class="site-author-name" itemprop="name">kiwi</p>
+           
+              <p class="site-description motion-element" itemprop="description">kiwi的个人博客</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/junfeng_wang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/junfengwang11" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.v2ex.com/" title="V2EX" target="_blank">V2EX</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.macx.cn/" title="麦克叉" target="_blank">麦克叉</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本优化建议"><span class="nav-number">1.</span> <span class="nav-text">基本优化建议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#尽量使用短的key"><span class="nav-number">1.1.</span> <span class="nav-text">尽量使用短的key</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#避免使用keys"><span class="nav-number">1.2.</span> <span class="nav-text">避免使用keys *</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在存到Redis之前先把你的数据压缩下"><span class="nav-number">1.3.</span> <span class="nav-text">在存到Redis之前先把你的数据压缩下</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置-key-有效期"><span class="nav-number">1.4.</span> <span class="nav-text">设置 key 有效期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择回收策略-maxmemory-policy"><span class="nav-number">1.5.</span> <span class="nav-text">选择回收策略(maxmemory-policy)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用bit位级别操作和byte字节级别操作来减少不必要的内存使用"><span class="nav-number">1.6.</span> <span class="nav-text">使用bit位级别操作和byte字节级别操作来减少不必要的内存使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#尽可能地使用hashes哈希存储"><span class="nav-number">1.7.</span> <span class="nav-text">尽可能地使用hashes哈希存储</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#当业务场景不需要数据持久化时，关闭所有的持久化方式可以获得最佳的性能"><span class="nav-number">1.8.</span> <span class="nav-text">当业务场景不需要数据持久化时，关闭所有的持久化方式可以获得最佳的性能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#想要一次添加多条数据的时候可以使用管道"><span class="nav-number">1.9.</span> <span class="nav-text">想要一次添加多条数据的时候可以使用管道</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#限制redis的内存大小"><span class="nav-number">1.10.</span> <span class="nav-text">限制redis的内存大小</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化实例分析"><span class="nav-number">2.</span> <span class="nav-text">优化实例分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#管道（Pipeline）的使用"><span class="nav-number">2.1.</span> <span class="nav-text">管道（Pipeline）的使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hash的使用"><span class="nav-number">2.2.</span> <span class="nav-text">Hash的使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#宿主服务器优化"><span class="nav-number">2.3.</span> <span class="nav-text">宿主服务器优化</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2018 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kiwi</span>
+  
+   <span style="margin-left:8px;">
+   <script src="http://s6.cnzz.com/stat.php?id=1274382859&web_id=1274382859" type="text/javascript"></script>
+   </span>
+  
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1274382859&web_id=1274382859" language="JavaScript"></script>
+  </div>
+
+
+
+</body>
+</html>
