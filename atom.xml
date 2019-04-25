@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kiwismart.top/"/>
-  <updated>2019-04-24T14:06:35.482Z</updated>
+  <updated>2019-04-25T00:51:51.598Z</updated>
   <id>http://kiwismart.top/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>高并发秒发系统</title>
+    <link href="http://kiwismart.top/2019/04/25/%E9%AB%98%E5%B9%B6%E5%8F%91%E7%A7%92%E5%8F%91%E7%B3%BB%E7%BB%9F/"/>
+    <id>http://kiwismart.top/2019/04/25/高并发秒发系统/</id>
+    <published>2019-04-25T00:27:05.000Z</published>
+    <updated>2019-04-25T00:51:51.598Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在每年的双十一、618等促销活动中，淘宝、京东等电商平台都会推出众多的秒杀活动，作为一个开发人员都会有一个疑问“这些秒杀活动是如何设计及支持如此大量的瞬时请求的”？&lt;/p&gt;
+&lt;h2 id=&quot;秒杀活动的特点&quot;&gt;&lt;a href=&quot;#秒杀活动的特点&quot; class=&quot;headerl
+      
+    
+    </summary>
+    
+    
+      <category term="并发" scheme="http://kiwismart.top/tags/%E5%B9%B6%E5%8F%91/"/>
+    
+      <category term="秒杀" scheme="http://kiwismart.top/tags/%E7%A7%92%E6%9D%80/"/>
+    
+  </entry>
   
   <entry>
     <title>Sentinel 与 Hystrix 的对比</title>
@@ -516,34 +540,6 @@
       <category term="Java" scheme="http://kiwismart.top/tags/Java/"/>
     
       <category term="JVM" scheme="http://kiwismart.top/tags/JVM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>springboot定时器</title>
-    <link href="http://kiwismart.top/2018/09/18/springboot%E5%AE%9A%E6%97%B6%E5%99%A8/"/>
-    <id>http://kiwismart.top/2018/09/18/springboot定时器/</id>
-    <published>2018-09-18T08:04:57.000Z</published>
-    <updated>2018-10-11T05:52:29.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;center&gt;&lt;img src=&quot;/2018/09/18/springboot定时器/schedule-web-orig_orig.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;/p&gt;
-&lt;h4 id=&quot;描述&quot;&gt;&lt;a href=&quot;#描述&quot; class=&quot;headerlink&quot;
-      
-    
-    </summary>
-    
-      <category term="springboot" scheme="http://kiwismart.top/categories/springboot/"/>
-    
-    
-      <category term="Java" scheme="http://kiwismart.top/tags/Java/"/>
-    
-      <category term="springboot" scheme="http://kiwismart.top/tags/springboot/"/>
-    
-      <category term="定时器" scheme="http://kiwismart.top/tags/%E5%AE%9A%E6%97%B6%E5%99%A8/"/>
     
   </entry>
   
