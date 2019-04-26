@@ -109,7 +109,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="jvm," />
 
 
 
@@ -127,16 +127,18 @@
 
 
 
-<meta name="description" content="kiwi的个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="kiwi的个人博客">
-<meta property="og:url" content="http://kiwismart.top/categories/springboot/index.html">
+<meta name="description" content="本文介绍的是如何在高性能即高配置的服务器上进行JVM优化，为了充分利用高性能服务器的硬件资源，可以采用以下措施进行优化 采用64位操作系统，并为JVM分配大内存如果JVM中堆内存太小，就会频繁地发生垃圾回收，而垃圾回收都会伴随不同程度的程序停顿，因此如果扩大堆内存的话就可以减少垃圾回收的频率，从而避免程序的停顿。因此首先想到的就是扩大内存容量。而32位的操作系统理论上支持的最大内存只有4G，但是6">
+<meta name="keywords" content="jvm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="高性能服务器上进行JVM调优">
+<meta property="og:url" content="http://kiwismart.top/2019/04/26/高性能服务器上进行JVM调优/index.html">
 <meta property="og:site_name" content="kiwi的个人博客">
-<meta property="og:description" content="kiwi的个人博客">
+<meta property="og:description" content="本文介绍的是如何在高性能即高配置的服务器上进行JVM优化，为了充分利用高性能服务器的硬件资源，可以采用以下措施进行优化 采用64位操作系统，并为JVM分配大内存如果JVM中堆内存太小，就会频繁地发生垃圾回收，而垃圾回收都会伴随不同程度的程序停顿，因此如果扩大堆内存的话就可以减少垃圾回收的频率，从而避免程序的停顿。因此首先想到的就是扩大内存容量。而32位的操作系统理论上支持的最大内存只有4G，但是6">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-26T03:35:16.444Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="kiwi的个人博客">
-<meta name="twitter:description" content="kiwi的个人博客">
+<meta name="twitter:title" content="高性能服务器上进行JVM调优">
+<meta name="twitter:description" content="本文介绍的是如何在高性能即高配置的服务器上进行JVM优化，为了充分利用高性能服务器的硬件资源，可以采用以下措施进行优化 采用64位操作系统，并为JVM分配大内存如果JVM中堆内存太小，就会频繁地发生垃圾回收，而垃圾回收都会伴随不同程度的程序停顿，因此如果扩大堆内存的话就可以减少垃圾回收的频率，从而避免程序的停顿。因此首先想到的就是扩大内存容量。而32位的操作系统理论上支持的最大内存只有4G，但是6">
 
 
 
@@ -165,13 +167,13 @@
 
 
 
-  <link rel="canonical" href="http://kiwismart.top/categories/springboot/"/>
+  <link rel="canonical" href="http://kiwismart.top/2019/04/26/高性能服务器上进行JVM调优/"/>
 
 
 
 
 
-  <title>分类: springboot | kiwi的个人博客</title>
+  <title>高性能服务器上进行JVM调优 | kiwi的个人博客</title>
   
 
 
@@ -202,7 +204,7 @@
     
   
 
-  <div class="container sidebar-position-right  ">
+  <div class="container sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -350,111 +352,209 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block category">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>springboot<small>分类</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://kiwismart.top/2019/04/26/高性能服务器上进行JVM调优/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kiwi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kiwi的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/03/25/springboot跨域/" itemprop="url">
-              
-                <span itemprop="name">springboot跨域</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">高性能服务器上进行JVM调优</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-03-25T14:21:39+08:00"
-              content="2019-03-25" >
-          03-25
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-26T10:25:37+08:00">
+                2019-04-26
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  839
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/18/springboot定时器/" itemprop="url">
-              
-                <span itemprop="name">springboot定时器</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-18T16:04:57+08:00"
-              content="2018-09-18" >
-          09-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/08/13/Spring-Boot-基础/" itemprop="url">
-              
-                <span itemprop="name">Spring Boot 简介</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-13T17:00:02+08:00"
-              content="2018-08-13" >
-          08-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <p>本文介绍的是如何在高性能即高配置的服务器上进行JVM优化，为了充分利用高性能服务器的硬件资源，可以采用以下措施进行优化</p>
+<h3 id="采用64位操作系统，并为JVM分配大内存"><a href="#采用64位操作系统，并为JVM分配大内存" class="headerlink" title="采用64位操作系统，并为JVM分配大内存"></a>采用64位操作系统，并为JVM分配大内存</h3><p>如果JVM中堆内存太小，就会频繁地发生垃圾回收，而垃圾回收都会伴随不同程度的程序停顿，因此如果扩大堆内存的话就可以减少垃圾回收的频率，从而避免程序的停顿。因此首先想到的就是扩大内存容量。而32位的操作系统理论上支持的最大内存只有4G，但是64位的操作系统最大却可以支持到128G的内存；综上所述我们可以使用64位的操作系统和64位的JVM，并为JVM分配更大的堆内存。但“幸福的烦恼”也随之而来。<br>堆内存变大后，固然垃圾收集的频率减少了，但每次垃圾回收的时间将会变长。如果堆内存为14G，那么每次Full GC的时间将长达数十秒。如果Full GC频繁发生，那么对于任何一个网站或者程序来说都是是无法忍受的。<br>因此，对于使用大内存的程序来说，一定要减少Full GC的频率，如果每天只有一两次Full GC，而且发生在低峰时间段内， 那完全可以接受。</p>
+<h3 id="减少Full-GC-频率"><a href="#减少Full-GC-频率" class="headerlink" title="减少Full GC 频率"></a>减少Full GC 频率</h3><p>为了减少Full GC的频率则需要尽量避免太多对象进入到老年代，有下列做法可以参考：</p>
+<h4 id="确保对象都是“朝生夕死”的"><a href="#确保对象都是“朝生夕死”的" class="headerlink" title="确保对象都是“朝生夕死”的"></a>确保对象都是“朝生夕死”的</h4><p>一个对象使用完后应尽快让他失效，然后尽快在新生代中被Minor GC回收掉，尽量避免对象在新生代中停留太长时间。</p>
+<h4 id="提高大对象直接进入老年代的门槛"><a href="#提高大对象直接进入老年代的门槛" class="headerlink" title="提高大对象直接进入老年代的门槛"></a>提高大对象直接进入老年代的门槛</h4><p>通过设置参数-XX:PretrnureSizeThreshold来提高大对象的门槛，尽量让对象都先进入新生代，然后尽快被Minor GC回收掉，而不要直接进入老年代。 </p>
+<h4 id="避免大对象"><a href="#避免大对象" class="headerlink" title="避免大对象"></a>避免大对象</h4><p>大对象对于JVM来说是个噩耗。如果对象过大，当前新生代的剩余空间装不下它，那么就需要使用分配担保机制，将当前新生代的对象都复制到老年代中，给大对象腾出空间，分配担保涉及到大量的复制，因此效率很低。如果将大对象直接放入老年代，虽然避免了分配担保过程，但该对象只有当Full GC时才能被回收，而Full GC的代价是高昂的。如果大对象过多时，老年代很快就装满了，这时就需要进行Full GC，如果Full GC频率过高，程序就会变得很卡。<br>对于大对象可以参考一下几种处理方法</p>
+<ul>
+<li>在写程序的时候尽量避免大对象<br>从源头降低大对象的出现，尽量选择空间利用率较高的数据结构存储。</li>
+<li>尽量缩短大对象的有效时间<br>对象用完后尽快让它失效，好让垃圾收集器尽快将他回收，避免因在新生代呆的时间过长而进入老年代。</li>
+</ul>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/jvm/" rel="tag"># jvm</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/25/java垃圾回收-GC-机制/" rel="next" title="Java垃圾回收(GC)机制">
+                <i class="fa fa-chevron-left"></i> Java垃圾回收(GC)机制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -462,6 +562,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -482,8 +586,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -594,6 +707,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#采用64位操作系统，并为JVM分配大内存"><span class="nav-number">1.</span> <span class="nav-text">采用64位操作系统，并为JVM分配大内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#减少Full-GC-频率"><span class="nav-number">2.</span> <span class="nav-text">减少Full GC 频率</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#确保对象都是“朝生夕死”的"><span class="nav-number">2.1.</span> <span class="nav-text">确保对象都是“朝生夕死”的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#提高大对象直接进入老年代的门槛"><span class="nav-number">2.2.</span> <span class="nav-text">提高大对象直接进入老年代的门槛</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#避免大对象"><span class="nav-number">2.3.</span> <span class="nav-text">避免大对象</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -724,10 +853,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
