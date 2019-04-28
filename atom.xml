@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kiwismart.top/"/>
-  <updated>2019-04-26T03:35:16.444Z</updated>
+  <updated>2019-04-28T00:24:13.719Z</updated>
   <id>http://kiwismart.top/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spring Boot &amp;&amp; Spring Cloud</title>
+    <link href="http://kiwismart.top/2019/04/27/Spring-Boot-Spring-Cloud/"/>
+    <id>http://kiwismart.top/2019/04/27/Spring-Boot-Spring-Cloud/</id>
+    <published>2019-04-27T11:00:40.000Z</published>
+    <updated>2019-04-28T00:24:13.719Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;Spring Boot先于Spring Cloud问世，Spring Boot相当于脚手架，借助它可以快速搭建“房子”，它本身不具备任何功能
+      
+    
+    </summary>
+    
+      <category term="微服务" scheme="http://kiwismart.top/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    
+    
+      <category term="Spring Boot" scheme="http://kiwismart.top/tags/Spring-Boot/"/>
+    
+      <category term="Spring Cloud" scheme="http://kiwismart.top/tags/Spring-Cloud/"/>
+    
+      <category term="微服务" scheme="http://kiwismart.top/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>高性能服务器上进行JVM调优</title>
@@ -504,36 +531,6 @@
     
     
       <category term="redis" scheme="http://kiwismart.top/tags/redis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>缓存那些事（一）</title>
-    <link href="http://kiwismart.top/2018/09/29/%E7%BC%93%E5%AD%98%E9%82%A3%E4%BA%9B%E4%BA%8B%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>http://kiwismart.top/2018/09/29/缓存那些事（一）/</id>
-    <published>2018-09-29T02:30:31.000Z</published>
-    <updated>2018-09-29T06:13:54.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;在日常的开发工作中程序猿会用到各种各样的缓存软件，不管是Redis还是Memcached抑或是其它类型的缓存软件，都会遇到&lt;strong&gt;缓存穿透&lt;/strong&gt;、&lt;strong&gt;缓存并发&lt;/strong&gt;、&lt;strong&gt;缓存失效&lt;/strong&gt;三类问题&lt;/p&gt;
-&lt;h
-      
-    
-    </summary>
-    
-      <category term="Java" scheme="http://kiwismart.top/categories/Java/"/>
-    
-    
-      <category term="redis" scheme="http://kiwismart.top/tags/redis/"/>
-    
-      <category term="缓存" scheme="http://kiwismart.top/tags/%E7%BC%93%E5%AD%98/"/>
-    
-      <category term="缓存穿透" scheme="http://kiwismart.top/tags/%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F/"/>
-    
-      <category term="缓存并发" scheme="http://kiwismart.top/tags/%E7%BC%93%E5%AD%98%E5%B9%B6%E5%8F%91/"/>
     
   </entry>
   
