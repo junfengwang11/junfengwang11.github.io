@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kiwismart.top/"/>
-  <updated>2019-04-28T00:27:30.099Z</updated>
+  <updated>2019-05-01T15:53:32.384Z</updated>
   <id>http://kiwismart.top/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spring Cloud 微服务架构</title>
+    <link href="http://kiwismart.top/2019/05/01/Spring-Cloud-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84/"/>
+    <id>http://kiwismart.top/2019/05/01/Spring-Cloud-微服务架构/</id>
+    <published>2019-05-01T15:34:56.000Z</published>
+    <updated>2019-05-01T15:53:32.384Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;架构图&quot;&gt;&lt;a href=&quot;#架构图&quot; class=&quot;headerlink&quot; title=&quot;架构图&quot;&gt;&lt;/a&gt;架构图&lt;/h3&gt;&lt;p&gt;&lt;center&gt;&lt;img src=&quot;/2019/05/01/Spring-Cloud-微服务架构/20180815110816876
+      
+    
+    </summary>
+    
+      <category term="微服务" scheme="http://kiwismart.top/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    
+      <category term="Spring Cloud" scheme="http://kiwismart.top/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Spring-Cloud/"/>
+    
+    
+      <category term="Spring Boot" scheme="http://kiwismart.top/tags/Spring-Boot/"/>
+    
+      <category term="Spring Cloud" scheme="http://kiwismart.top/tags/Spring-Cloud/"/>
+    
+      <category term="微服务" scheme="http://kiwismart.top/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    
+      <category term="架构" scheme="http://kiwismart.top/tags/%E6%9E%B6%E6%9E%84/"/>
+    
+  </entry>
   
   <entry>
     <title>Spring Boot &amp;&amp; Spring Cloud</title>
@@ -500,31 +531,6 @@
       
         &lt;p&gt;本文主要介绍在MacOS及centos7.x上如何安装及配置Redis&lt;/p&gt;
 &lt;h3 id=&quot;Mac&quot;&gt;&lt;a href=&quot;#Mac&quot; class=&quot;headerlink&quot; title=&quot;Mac&quot;&gt;&lt;/a&gt;Mac&lt;/h3&gt;&lt;h4 id=&quot;安装redis&quot;&gt;&lt;a href=&quot;
-      
-    
-    </summary>
-    
-      <category term="Java" scheme="http://kiwismart.top/categories/Java/"/>
-    
-    
-      <category term="redis" scheme="http://kiwismart.top/tags/redis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>缓存那些事（二）</title>
-    <link href="http://kiwismart.top/2018/10/08/%E7%BC%93%E5%AD%98%E9%82%A3%E4%BA%9B%E4%BA%8B%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
-    <id>http://kiwismart.top/2018/10/08/缓存那些事（二）/</id>
-    <published>2018-10-08T01:35:59.000Z</published>
-    <updated>2018-10-08T02:07:32.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;center&gt;&lt;div style=&quot;width:180px;height:180px&quot;&gt;&lt;img src=&quot;/2018/10/08/缓存那些事（二）/redis.svg&quot; alt=&quot;redis&quot;&gt;&lt;/div&gt;&lt;/center&gt;
-
-&lt;h4 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简
       
     
     </summary>
