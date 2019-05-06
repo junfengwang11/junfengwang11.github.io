@@ -136,7 +136,7 @@
 <meta property="og:description" content="前言数据库存储引擎是数据库底层软件组织，数据库管理系统（DBMS）使用数据引擎进行创建、查询、更新和删除数据。不同的存储引擎提供不同的存储机制、索引技巧、锁定水平等功能，使用不同的存储引擎，还可以获得特定的功能。现在许多不同的数据库管理系统都支持多种不同的数据引擎。MySQL的核心就是存储引擎。 存储引擎查看MySQL给开发者提供了查询存储引擎的功能，我这里使用的是MySQL 5.1.73，查看存">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://kiwismart.top/2019/05/06/mysql引擎/vs.png">
-<meta property="og:updated_time" content="2019-05-06T14:25:50.000Z">
+<meta property="og:updated_time" content="2019-05-06T14:35:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL引擎">
 <meta name="twitter:description" content="前言数据库存储引擎是数据库底层软件组织，数据库管理系统（DBMS）使用数据引擎进行创建、查询、更新和删除数据。不同的存储引擎提供不同的存储机制、索引技巧、锁定水平等功能，使用不同的存储引擎，还可以获得特定的功能。现在许多不同的数据库管理系统都支持多种不同的数据引擎。MySQL的核心就是存储引擎。 存储引擎查看MySQL给开发者提供了查询存储引擎的功能，我这里使用的是MySQL 5.1.73，查看存">
@@ -505,39 +505,39 @@
 <h4 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h4><p>InnoDB是事务型数据库的首选引擎，支持事务安全表（ACID），支持行锁定和外键，上面的命令行输出也看到了，InnoDB是默认的MySQL引擎。InnoDB主要特性有：</p>
 <ul>
 <li>InnoDB给MySQL提供了具有提交、回滚和崩溃恢复能力的事务安全（ACID兼容）存储引擎。InnoDB锁定在行级并且也在SELECT语句中提供一个类似Oracle的非锁定读。这些功能增加了多用户部署和性能。在SQL查询中，可以自由地将InnoDB类型的表和其他MySQL的表类型混合起来，甚至在同一个查询中也可以混合</li>
-<li>InnoDB是为处理巨大数据量的最大性能设计。它的CPU效率可能是任何其他基于磁盘的关系型数据库引擎锁不能匹敌的</li>
+<li>InnoDB是为处理巨大数据量的最大性能设计。它的CPU效率可能是任何其他基于磁盘的关系型数据库引擎所不能匹敌的</li>
 <li>InnoDB存储引擎完全与MySQL服务器整合，InnoDB存储引擎为在主内存中缓存数据和索引而维持它自己的缓冲池。InnoDB将它的表和索引在一个逻辑表空间中，表空间可以包含数个文件（或原始磁盘文件）。这与MyISAM表不同，比如在MyISAM表中每个表被存放在分离的文件中。InnoDB表可以是任何尺寸，即使在文件尺寸被限制为2GB的操作系统上</li>
-<li>InnoDB支持外键完整性约束，存储表中的数据时，每张表的存储都按主键顺序存放，如果没有显示在表定义时指定主键，InnoDB会为每一行生成一个6字节的ROWID，并以此作为主键</li>
+<li>InnoDB支持外键完整性约束，存储表中的数据时，每张表的存储都按主键顺序存放，如果没有<code>显示</code>在表定义时指定主键，InnoDB会为每一行生成一个6字节的<code>ROWID</code>，并以此作为主键</li>
 <li>InnoDB被用在众多需要高性能的大型数据库站点上</li>
 </ul>
-<p>InnoDB不创建目录，使用InnoDB时，MySQL将在MySQL数据目录下创建一个名为ibdata1的10MB大小的自动扩展数据文件，以及两个名为ib_logfile0和ib_logfile1的5MB大小的日志文件</p>
+<p>InnoDB不创建目录，使用InnoDB时，MySQL将在数据目录下创建一个名为<code>ibdata1</code>的<code>10MB</code>大小的<code>自动扩展</code>数据文件，以及两个名为<code>ib_logfile0</code>和<code>ib_logfile1</code>的<code>5MB</code>大小的日志文件</p>
 <h4 id="MyISAM"><a href="#MyISAM" class="headerlink" title="MyISAM"></a>MyISAM</h4><p>MyISAM基于ISAM存储引擎，并对其进行扩展。它是在Web、数据仓储和其他应用环境下最常使用的存储引擎之一。MyISAM拥有较高的插入、查询速度，但<code>不支持事务</code>。MyISAM主要特性有：</p>
 <ul>
 <li>大文件（达到63位文件长度）在支持大文件的文件系统和操作系统上被支持</li>
 <li>当把删除和更新及插入操作混合使用的时候，动态尺寸的行产生更少碎片。这要通过合并相邻被删除的块，以及若下一个块被删除，就扩展到下一块自动完成</li>
 <li>每个MyISAM表最大索引数是64，这可以通过<code>重新编译</code>来改变。每个索引最大的列数是16</li>
-<li>最大的键长度是1000字节，这也可以通过<code>编译</code>来改变，对于键长度超过250字节的情况，一个超过1024字节的键将被用上</li>
-<li>BLOB和TEXT列可以被索引</li>
-<li>NULL被允许在索引的列中，这个值占每个键的0~1个字节</li>
+<li>最大的键长度是<code>1000字节</code>，这也可以通过<code>编译</code>来改变，对于键长度超过250字节的情况，一个超过1024字节的键将被用上</li>
+<li><code>BLOB</code>和<code>TEXT</code>列可以被索引</li>
+<li><code>NULL</code>被允许在索引的列中，这个值占每个键的0~1个字节</li>
 <li>所有数字键值以高字节优先被存储以允许一个更高的索引压缩</li>
-<li>每个MyISAM类型的表都有一个AUTO_INCREMENT的内部列，当INSERT和UPDATE操作的时候该列被更新，同时AUTO_INCREMENT列将被刷新。所以说，MyISAM类型表的AUTO_INCREMENT列更新比InnoDB类型的AUTO_INCREMENT更快</li>
-<li>可以把数据文件和索引文件放在不同目录</li>
+<li>每个MyISAM类型的表都有一个<code>AUTO_INCREMENT</code>的内部列，当<code>INSERT</code>和<code>UPDATE</code>操作的时候该列被更新，同时<code>AUTO_INCREMENT</code>列将被刷新。所以说，MyISAM类型表的<code>AUTO_INCREMENT</code>列更新比InnoDB类型的<code>AUTO_INCREMENT</code>更快</li>
+<li>可以把数据文件和索引文件放在<code>不同目录</code></li>
 <li>每个字符列可以有不同的字符集</li>
-<li>有VARCHAR的表可以固定或动态记录长度</li>
-<li>VARCHAR和CHAR列可以多达64KB</li>
+<li>有<code>VARCHAR</code>的表可以固定或动态记录长度</li>
+<li><code>VARCHAR</code>和<code>CHAR</code>列可以多达64KB</li>
 </ul>
-<p>使用MyISAM引擎创建数据库，将产生3个文件。文件的名字以表名字开始，扩展名之处文件类型：frm文件存储表定义、数据文件的扩展名为.MYD（MYData）、索引文件的扩展名时.MYI（MYIndex）</p>
-<h4 id="MEMORY"><a href="#MEMORY" class="headerlink" title="MEMORY"></a>MEMORY</h4><p>MEMORY存储引擎将表中的数据存储到内存中，未查询和引用其他表数据提供快速访问。MEMORY主要特性有</p>
+<p>使用MyISAM引擎创建数据库，将产生<code>3</code>个文件。文件的名字以表名字开始，扩展名之处文件类型：frm文件存储表定义、数据文件的扩展名为.MYD（MYData）、索引文件的扩展名时.MYI（MYIndex）</p>
+<h4 id="MEMORY"><a href="#MEMORY" class="headerlink" title="MEMORY"></a>MEMORY</h4><p>MEMORY存储引擎将表中的数据存储到<code>内存</code>中，来查询和引用其他表数据提供快速访问。MEMORY主要特性有</p>
 <ul>
 <li>MEMORY表的每个表可以有多达32个索引，每个索引16列，以及500字节的最大键长度</li>
-<li>MEMORY存储引擎执行HASH和BTREE索引</li>
+<li>MEMORY存储引擎执行<code>HASH</code>和<code>BTREE</code>索引</li>
 <li>可以在一个MEMORY表中有非唯一键值</li>
 <li>MEMORY表使用一个固定的记录长度格式</li>
-<li>MEMORY不支持BLOB或TEXT列</li>
-<li>MEMORY支持AUTO_INCREMENT列和对可包含NULL值的列的索引</li>
+<li>MEMORY不支持<code>BLOB</code>或<code>TEXT</code>列</li>
+<li>MEMORY支持<code>AUTO_INCREMENT</code>列和对可包含<code>NULL</code>值的列的索引</li>
 <li>MEMORY表在所由客户端之间共享（就像其他任何非TEMPORARY表）</li>
 <li>MEMORY表内存被存储在内存中，内存是MEMORY表和服务器在查询处理时的空闲中，创建的内部表共享</li>
-<li>当不再需要MEMORY表的内容时，要释放被MEMORY表使用的内存，应该执行DELETE FROM或TRUNCATE TABLE，或者删除整个表（使用DROP TABLE）</li>
+<li>当不再需要MEMORY表的内容时，要释放被MEMORY表使用的内存，应该执行<code>DELETE FROM</code>或<code>TRUNCATE TABLE</code>，或者删除整个表（使用<code>DROP TABLE</code>）</li>
 </ul>
 <h3 id="存储引擎的选择"><a href="#存储引擎的选择" class="headerlink" title="存储引擎的选择"></a>存储引擎的选择</h3><p>不同的存储引擎都有各自的特点，以适应不同的需求，如下图所示</p>
 <p><center><img src="/2019/05/06/mysql引擎/vs.png" alt=""></center><br>如果要提供提交、回滚、崩溃恢复能力的事务安全（ACID兼容）能力，并要求实现并发控制，<code>InnoDB</code>是一个好的选择。<br>如果数据表主要用来插入和查询记录，则<code>MyISAM</code>引擎能提供较高的处理效率。<br>如果只是临时存放数据，数据量不大，并且不需要较高的数据安全性，可以选择将数据保存在内存中的<code>Memory</code>引擎，MySQL中使用该引擎作为<code>临时表</code>，存放查询的中间结果。<br>如果只有INSERT和SELECT操作，可以选择<code>Archive</code>，<code>Archive</code>支持<code>高并发</code>的<code>插入</code>操作，但是本身<code>不是事务安全的</code>。<code>Archive</code>非常适合存储<code>归档数据</code>，如<code>记录日志信息</code>可以使用<code>Archive</code>。<br>使用哪一种引擎需要灵活选择，一个数据库中多个表可以使用<code>不同引擎</code>以满足各种性能和实际需求，使用合适的存储引擎，将会提高整个数据库的性能。</p>
