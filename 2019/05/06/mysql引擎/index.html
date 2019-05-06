@@ -136,7 +136,7 @@
 <meta property="og:description" content="前言数据库存储引擎是数据库底层软件组织，数据库管理系统（DBMS）使用数据引擎进行创建、查询、更新和删除数据。不同的存储引擎提供不同的存储机制、索引技巧、锁定水平等功能，使用不同的存储引擎，还可以获得特定的功能。现在许多不同的数据库管理系统都支持多种不同的数据引擎。MySQL的核心就是存储引擎。 存储引擎查看MySQL给开发者提供了查询存储引擎的功能，我这里使用的是MySQL 5.1.73，查看存">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://kiwismart.top/2019/05/06/mysql引擎/vs.png">
-<meta property="og:updated_time" content="2019-05-06T14:20:16.000Z">
+<meta property="og:updated_time" content="2019-05-06T14:25:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL引擎">
 <meta name="twitter:description" content="前言数据库存储引擎是数据库底层软件组织，数据库管理系统（DBMS）使用数据引擎进行创建、查询、更新和删除数据。不同的存储引擎提供不同的存储机制、索引技巧、锁定水平等功能，使用不同的存储引擎，还可以获得特定的功能。现在许多不同的数据库管理系统都支持多种不同的数据引擎。MySQL的核心就是存储引擎。 存储引擎查看MySQL给开发者提供了查询存储引擎的功能，我这里使用的是MySQL 5.1.73，查看存">
@@ -460,7 +460,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,965
+                  1,964
                 </span>
               
 
@@ -499,7 +499,7 @@
       
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><code>数据库</code>存储引擎是数据库底层软件组织，数据库管理系统（DBMS）使用数据引擎进行创建、查询、更新和删除数据。不同的存储引擎提供不同的存储机制、索引技巧、锁定水平等功能，使用不同的存储引擎，还可以获得特定的功能。现在许多不同的数据库管理系统都支持多种不同的数据引擎。<code>MySQL</code>的核心就是存储引擎。</p>
 <h3 id="存储引擎查看"><a href="#存储引擎查看" class="headerlink" title="存储引擎查看"></a>存储引擎查看</h3><p>MySQL给开发者提供了查询存储引擎的功能，我这里使用的是MySQL 5.1.73，查看存储引擎的命令是<code>SHOW ENGINES</code>，其执行结果的输出为<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">+------------+---------+------------------------------------------------------------+--------------+------+------------+</span><br><span class="line">| Engine     | Support | Comment                                                    | Transactions | XA   | Savepoints |</span><br><span class="line">+------------+---------+------------------------------------------------------------+--------------+------+------------+</span><br><span class="line">| MRG_MYISAM | YES     | Collection of identical MyISAM tables                      | NO           | NO   | NO         |</span><br><span class="line">| CSV        | YES     | CSV storage engine                                         | NO           | NO   | NO         |</span><br><span class="line">| MyISAM     | DEFAULT | Default engine as of MySQL 3.23 with great performance     | NO           | NO   | NO         |</span><br><span class="line">| InnoDB     | YES     | Supports transactions, row-level locking, and foreign keys | YES          | YES  | YES        |</span><br><span class="line">| MEMORY     | YES     | Hash based, stored in memory, useful for temporary tables  | NO           | NO   | NO         |</span><br><span class="line">+------------+---------+------------------------------------------------------------+--------------+------+------------+</span><br><span class="line">5 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure></p>
-<p>由上面的输出结果可以看到MySQL给用户提供了非常多的存储引擎，包括处理事务安全表的引擎和出来了非事务安全表的引擎。<br>如果要想查看数据库默认使用哪个引擎，可以通过使用命令<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW VARIABLES LIKE 'storage_engine';</span><br></pre></td></tr></table></figure></p>
+<p>由上面的输出结果可以看到MySQL给用户提供了非常多的存储引擎，包括处理事务安全表的引擎和处理非事务安全表的引擎。<br>如果要想查看数据库默认使用哪个引擎，可以通过使用命令<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW VARIABLES LIKE 'storage_engine';</span><br></pre></td></tr></table></figure></p>
 <p>来查看，其输出结果如下：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">+----------------+--------+</span><br><span class="line">| Variable_name  | Value  |</span><br><span class="line">+----------------+--------+</span><br><span class="line">| storage_engine | MyISAM |</span><br><span class="line">+----------------+--------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure></p>
 <h3 id="存储引擎比较"><a href="#存储引擎比较" class="headerlink" title="存储引擎比较"></a>存储引擎比较</h3><p>在MySQL中，不需要在整个服务器中使用同一种存储引擎，针对具体的要求，可以对每一个表使用不同的存储引擎。Support列的值表示某种引擎是否能使用：YES表示可以使用、NO表示不能使用、DEFAULT表示该引擎为当前默认的存储引擎。下面来看一下其中几种常用的引擎</p>
 <h4 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h4><p>InnoDB是事务型数据库的首选引擎，支持事务安全表（ACID），支持行锁定和外键，上面的命令行输出也看到了，InnoDB是默认的MySQL引擎。InnoDB主要特性有：</p>
