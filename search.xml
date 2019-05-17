@@ -74,8 +74,8 @@
         <category>Java</category>
       </categories>
       <tags>
-        <tag>full gc</tag>
         <tag>jvm</tag>
+        <tag>full gc</tag>
         <tag>虚拟机</tag>
       </tags>
   </entry>

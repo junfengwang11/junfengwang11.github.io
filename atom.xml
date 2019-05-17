@@ -173,9 +173,9 @@
       <category term="Java" scheme="http://kiwismart.top/categories/Java/"/>
     
     
-      <category term="full gc" scheme="http://kiwismart.top/tags/full-gc/"/>
-    
       <category term="jvm" scheme="http://kiwismart.top/tags/jvm/"/>
+    
+      <category term="full gc" scheme="http://kiwismart.top/tags/full-gc/"/>
     
       <category term="虚拟机" scheme="http://kiwismart.top/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     
