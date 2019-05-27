@@ -609,8 +609,8 @@
         <category>docker</category>
       </categories>
       <tags>
-        <tag>centos6</tag>
         <tag>docker</tag>
+        <tag>centos6</tag>
       </tags>
   </entry>
   <entry>
@@ -633,8 +633,8 @@
         <category>知识图谱</category>
       </categories>
       <tags>
-        <tag>neo4j</tag>
         <tag>docker</tag>
+        <tag>neo4j</tag>
       </tags>
   </entry>
   <entry>
