@@ -1,0 +1,2331 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans,default">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-bounce.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=SF-Mono-Regular:300,300italic,400,400italic,700,700italic|SF-Mono-Bold:300,300italic,400,400italic,700,700italic|SF-Mono-Regular:300,300italic,400,400italic,700,700italic|SF-Mono-Bold:300,300italic,400,400italic,700,700italic|SF-Mono-Regular:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Java,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="kiwi的个人博客" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="前言 本文章是将网上PDF版本的Java开发规范转换成的Markdown版本 Java 开发手册    版本号 作者 日期 备注     1.4.0 阿里巴巴集团技术团队 2018. 5. 20 增加设计规约（详尽版）   1.4.1 王俊峰 2018. 10. 8 pdf2markdown   1.4.2 王俊峰 2018. 10. 10 去掉版本历史    一、编程规约(一) 命名风格 【">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java开发规范">
+<meta property="og:url" content="http://kiwismart.top/2018/10/08/Java开发规范/index.html">
+<meta property="og:site_name" content="kiwi的个人博客">
+<meta property="og:description" content="前言 本文章是将网上PDF版本的Java开发规范转换成的Markdown版本 Java 开发手册    版本号 作者 日期 备注     1.4.0 阿里巴巴集团技术团队 2018. 5. 20 增加设计规约（详尽版）   1.4.1 王俊峰 2018. 10. 8 pdf2markdown   1.4.2 王俊峰 2018. 10. 10 去掉版本历史    一、编程规约(一) 命名风格 【">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://kiwismart.top/2018/10/08/Java开发规范/images.jpeg">
+<meta property="og:image" content="http://kiwismart.top/2018/10/08/Java开发规范/1539094731060.jpg">
+<meta property="og:updated_time" content="2018-10-11T05:33:47.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java开发规范">
+<meta name="twitter:description" content="前言 本文章是将网上PDF版本的Java开发规范转换成的Markdown版本 Java 开发手册    版本号 作者 日期 备注     1.4.0 阿里巴巴集团技术团队 2018. 5. 20 增加设计规约（详尽版）   1.4.1 王俊峰 2018. 10. 8 pdf2markdown   1.4.2 王俊峰 2018. 10. 10 去掉版本历史    一、编程规约(一) 命名风格 【">
+<meta name="twitter:image" content="http://kiwismart.top/2018/10/08/Java开发规范/images.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"always","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://kiwismart.top/2018/10/08/Java开发规范/">
+
+
+
+
+
+  <title>Java开发规范 | kiwi的个人博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1274382859&web_id=1274382859" language="JavaScript"></script>
+  </div>
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">kiwi的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://kiwismart.top/2018/10/08/Java开发规范/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kiwi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kiwi的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java开发规范</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-08T14:01:59+08:00">
+                2018-10-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  22,365
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  82
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <center><img src="/2018/10/08/Java开发规范/images.jpeg" alt=""></center>
+
+<p>前言</p>
+<p>本文章是将网上PDF版本的<a href="https://github.com/alibaba/p3c/blob/master/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4Java%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C%EF%BC%88%E8%AF%A6%E5%B0%BD%E7%89%88%EF%BC%89.pdf" target="_blank" rel="noopener">Java开发规范</a>转换成的<a href="Java开发规范.md1">Markdown版本</a></p>
+<p>Java 开发手册</p>
+<table>
+<thead>
+<tr>
+<th>版本号</th>
+<th>作者</th>
+<th>日期</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.4.0</td>
+<td>阿里巴巴集团技术团队</td>
+<td>2018. 5. 20</td>
+<td>增加设计规约（详尽版）</td>
+</tr>
+<tr>
+<td>1.4.1</td>
+<td>王俊峰</td>
+<td>2018. 10. 8</td>
+<td>pdf2markdown</td>
+</tr>
+<tr>
+<td>1.4.2</td>
+<td>王俊峰</td>
+<td>2018. 10. 10</td>
+<td>去掉版本历史</td>
+</tr>
+</tbody>
+</table>
+<h2 id="一、编程规约"><a href="#一、编程规约" class="headerlink" title="一、编程规约"></a>一、编程规约</h2><h3 id="一-命名风格"><a href="#一-命名风格" class="headerlink" title="(一) 命名风格"></a>(一) 命名风格</h3><ol>
+<li><p><strong>【强制】</strong>代码中的命名均不能以<strong>下划线或美元符号</strong>开始，也不能以<strong>下划线或美元符号</strong> 结束。</p>
+<p> 反例：<code>_name  __name  $name  name_  name$  name__</code></p>
+</li>
+<li><p><strong>【强制】</strong>代码中的命名严禁使用拼音与英文混合的方式，更不允许直接使用中文的方式。</p>
+<blockquote>
+<p>正确的英文拼写和语法可以让阅读者易于理解，避免歧义。注意，即使纯拼音命名方式也要避免采用。</p>
+</blockquote>
+<p> 正例：<code>alibaba</code> <code>taobao</code> <code>youku</code> <code>hangzhou</code> 等国际通用的名称，可视同英文。<br> 反例：<code>DaZhePromotion [打折]</code> <code>getPingfenByName() [评分]</code> <code>int 某变量 = 3</code></p>
+</li>
+<li><strong>【强制】</strong>类名使用UpperCamelCase风格，但以下情形例外：DO / BO / DTO / VO / AO / PO / UID等。<br> 正例：<code>MarcoPolo</code> <code>UserDO</code> <code>XmlService</code> <code>TcpUdpDeal</code> <code>TaPromotion</code><br> 反例：<code>macroPolo</code> <code>UserDo</code> <code>XMLService</code> <code>TCPUDPDeal</code> <code>TAPromotion</code></li>
+<li><strong>【强制】</strong>方法名、参数名、成员变量、局部变量都统一使用<code>lowerCamelCase</code>风格，必须遵从<strong>驼峰</strong>形式。<br> 正例：<code>localValue</code> <code>getHttpMessage()</code> <code>inputUserId</code></li>
+<li><strong>【强制】</strong>常量命名全部大写，单词间用下划线隔开，力求语义表达完整清楚，不要嫌名字长。<br> 正例：<code>MAX_STOCK_COUNT</code><br> 反例：<code>MAX_COUNT</code></li>
+<li><strong>【强制】</strong>抽象类命名使用<code>Abstract</code>或<code>Base</code>开头；异常类命名使用<code>Exception</code>结尾；测试类命名以它要测试的类的名称开始，以<code>Test</code>结尾。</li>
+<li><strong>【强制】</strong>类型与中括号紧挨相连来表示数组。<br> 正例：定义整形数组<code>int[] arrayDemo</code>;<br> 反例：在main参数中，使用<code>String args[]</code>来定义。    </li>
+<li><strong>【强制】</strong><code>POJO</code>类中布尔类型的变量，都不要加is前缀，否则部分框架解析会引起序列化错误。<br> 反例：定义为基本数据类型<code>Boolean isDeleted</code>的属性，它的方法也是<code>isDeleted()</code>，RPC框架在反向解析的时候，”误以为”对应的属性名称是<code>deleted</code>，导致属性获取不到，进而抛出异常。</li>
+<li><strong>【强制】</strong>包名统一使用小写，点分隔符之间有且仅有一个自然语义的英语单词。包名统一使用单数形式，但是类名如果有复数含义，类名可以使用复数形式。<br> 正例：应用工具类包名为<code>com.alibaba.ai.util</code>、类名为<code>MessageUtils</code>（此规则参考spring的框架结构）</li>
+<li><strong>【强制】</strong>杜绝完全不规范的缩写，避免望文不知义。<br>反例：<code>AbstractClass</code>“缩写”命名成<code>AbsClass</code>；<code>condition</code>“缩写”命名成 <code>condi</code>，此类随意缩写严重降低了代码的可阅读性。</li>
+<li><strong>【推荐】</strong>为了达到代码自解释的目标，任何自定义编程元素在命名时，使用尽量完整的单词组合来表达其意。<br>正例：在JDK中，表达原子更新的类名为：<code>AtomicReferenceFieldUpdater</code>。<br>反例：变量<code>int a</code>的随意命名方式。</li>
+<li><p><strong>【推荐】</strong>如果模块、接口、类、方法使用了设计模式，在命名时需体现出具体模式。</p>
+<blockquote>
+<p>将设计模式体现在名字中，有利于阅读者快速理解架构设计理念。</p>
+</blockquote>
+<p>正例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OrderFactory</span></span>;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginProxy</span></span>;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ResourceObserver</span></span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>【推荐】</strong>接口类中的方法和属性不要加任何修饰符号（public 也不要加），保持代码的简洁性，并加上有效的Javadoc注释。尽量不要在接口里定义变量，如果一定要定义变量，肯定是与接口方法相关，并且是整个应用的基础常量。<br>正例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接口方法签名</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">commit</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//接口基础常量</span></span><br><span class="line">String COMPANY = <span class="string">"alibaba"</span>;</span><br></pre></td></tr></table></figure>
+<p>反例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接口方法定义</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>说明：JDK 8 中接口允许有默认实现，那么这个default方法，是对所有实现类都有价值的默认实现。</p>
+</blockquote>
+</li>
+<li><p>接口和实现类的命名有两套规则：<br>1 ）<strong>【强制】</strong>对于<code>Service</code>和<code>DAO</code>类，基于SOA的理念，暴露出来的服务一定是接口，内部的实现类用Impl的后缀与接口区别。<br>正例：<code>CacheServiceImpl</code>实现<code>CacheService</code>接口。<br>2 ） <strong>【推荐】</strong> 如果是形容能力的接口名称，取对应的形容词为接口名（通常是–able的形式）。<br>正例：<code>AbstractTranslator</code>实现 <code>Translatable</code>接口。</p>
+</li>
+<li><p>【参考】枚举类名建议带上<code>Enum</code>后缀，枚举成员名称需要全大写，单词间用下划线隔开。</p>
+<blockquote>
+<p>说明：枚举其实就是特殊的类，域成员均为常量，且构造方法被默认强制是私有。</p>
+</blockquote>
+<p>正例：枚举名字为<code>ProcessStatusEnum</code>的成员名称：<code>SUCCESS</code>、<code>UNKNOWN_REASON</code>。</p>
+</li>
+<li>【参考】各层命名规约：<br>A) <code>Service</code>/<code>DAO</code>层方法命名规约<pre><code>1 ） 获取单个对象的方法用get做前缀。
+2 ） 获取多个对象的方法用list做前缀，复数形式结尾如：listObjects。
+3 ） 获取统计值的方法用count做前缀。
+4 ） 插入的方法用save/insert做前缀。
+5 ） 删除的方法用remove/delete做前缀。
+6 ） 修改的方法用update做前缀。
+</code></pre>B) 领域模型命名规约<pre><code>1 ） 数据对象：xxxDO，xxx即为数据表名。
+2 ） 数据传输对象：xxxDTO，xxx为业务领域相关的名称。
+3 ） 展示对象：xxxVO，xxx一般为网页名称。
+4 ） POJO是DO/DTO/BO/VO的统称，禁止命名成xxxPOJO。
+</code></pre></li>
+</ol>
+<h3 id="二-常量定义"><a href="#二-常量定义" class="headerlink" title="(二) 常量定义"></a>(二) 常量定义</h3><ol>
+<li><p><strong>【强制】</strong>不允许任何魔法值（即未经预先定义的常量）直接出现在代码中。<br> 反例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String key = <span class="string">"Id#taobao_"</span> + tradeId;</span><br><span class="line">cache.put(key, value);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>【强制】</strong>在<code>long</code>或者<code>Long</code>赋值时，数值后使用大写的<strong>L</strong>，不能是小写的<strong>l</strong>，小写容易跟数字<strong>1</strong>混淆，造成误解。<br> 说明：<code>Long a = 2l;</code> 写的是数字的 <code>21</code> ，还是<code>Long</code>型的2?</p>
+</li>
+<li><strong>【推荐】</strong>不要使用一个常量类维护所有常量，要按常量功能进行归类，分开维护。<br> 说明：大而全的常量类，杂乱无章，使用查找功能才能定位到修改的常量，不利于理解和维护。<br> 正例：缓存相关常量放在类<code>CacheConsts</code>下；系统配置相关常量放在类<code>ConfigConsts</code>下。</li>
+<li><p><strong>【推荐】</strong>常量的复用层次有五层：跨应用共享常量、应用内共享常量、子工程内共享常量、包内共享常量、类内共享常量。<br> 1 ） 跨应用共享常量：放置在二方库中，通常是<code>client.jar</code>中的<code>constant</code>目录下。<br> 2 ） 应用内共享常量：放置在一方库中，通常是子模块中的<code>constant</code>目录下。<br> 反例：易懂变量也要统一定义成应用内共享常量，两位攻城师在两个类中分别定义了表示”是”的变量：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//类A中：</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String YES = <span class="string">"yes"</span>;</span><br><span class="line"><span class="comment">//类B中：</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String YES = <span class="string">"y"</span>;</span><br><span class="line"><span class="comment">//A.YES.equals(B.YES)，预期是true，但实际返回为false，导致线上问题。</span></span><br></pre></td></tr></table></figure>
+<p> 3 ） 子工程内部共享常量：即在当前子工程的<code>constant</code>目录下。<br> 4 ） 包内共享常量：即在当前包下单独的<code>constant</code>目录下。<br> 5 ） 类内共享常量：直接在类内部<code>private static final</code>定义。</p>
+</li>
+<li><p><strong>【推荐】</strong>如果变量值仅在一个固定范围内变化用<code>enum</code>类型来定义。<br> 说明：如果存在名称之外的延伸属性应使用<code>enum</code>类型，下面正例中的数字就是延伸信息，表示一年中的第几个季节。<br> 正例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> SeasonEnum &#123;</span><br><span class="line">	SPRING( <span class="number">1</span> ), SUMMER( <span class="number">2</span> ), AUTUMN( <span class="number">3</span> ), WINTER( <span class="number">4</span> );</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> seq;</span><br><span class="line">	SeasonEnum(<span class="keyword">int</span> seq)&#123;</span><br><span class="line">		<span class="keyword">this</span>.seq = seq;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="三-代码格式"><a href="#三-代码格式" class="headerlink" title="(三) 代码格式"></a>(三) 代码格式</h3><ol>
+<li><strong>【强制】</strong>大括号的使用约定。如果是大括号内为空，则简洁地写成{}即可，不需要换行；如果是非空代码块则：<br> 1 ） 左大括号前不换行。<br> 2 ） 左大括号后换行。<br> 3 ） 右大括号前换行。<br> 4 ） 右大括号后还有<code>else</code>等代码则不换行；表示终止的右大括号后必须换行。</li>
+<li><strong>【强制】</strong>左小括号和字符之间不出现空格；同样，右小括号和字符之间也不出现空格；而左大括号前需要空格。详见第 5 条下方正例提示。<br> 反例：<code>if (空格a == b空格)</code></li>
+<li><strong>【强制】</strong><code>if</code>/<code>for</code>/<code>while</code>/<code>switch</code>/<code>do</code>等保留字与括号之间都必须加<code>空格</code>。</li>
+<li><strong>【强制】</strong>任何二目、三目运算符的左右两边都需要加一个空格。<br> 说明：运算符包括赋值运算符<code>=</code>、逻辑运算符<code>&amp;&amp;</code>、加减乘除符号等。</li>
+<li><p><strong>【强制】</strong>采用 <code>4</code> 个空格缩进，禁止使用<code>tab</code>字符。</p>
+<blockquote>
+<p>说明：如果使用<code>tab</code>缩进，必须设置 <code>1</code> 个tab为 <code>4</code> 个<code>空格</code>。IDEA设置tab为 4 个空格时，请勿勾选Use tab character；而在eclipse中，必须勾选insert spaces for tabs。</p>
+</blockquote>
+<p> 正例： （涉及 1 - 5 点）</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 缩进 4 个空格</span></span><br><span class="line">    String say = <span class="string">"hello"</span>;</span><br><span class="line">    <span class="comment">// 运算符的左右必须有一个空格</span></span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 关键词if与括号之间必须有一个空格，括号内的f与左括号， 0 与右括号不需要空格</span></span><br><span class="line">    <span class="keyword">if</span> (flag == <span class="number">0</span>) &#123;</span><br><span class="line">        System.out.println(say);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 左大括号前加空格且不换行；左大括号后换行</span></span><br><span class="line">    <span class="keyword">if</span> (flag == <span class="number">1</span>) &#123;</span><br><span class="line">        System.out.println(<span class="string">"world"</span>);</span><br><span class="line">    <span class="comment">// 右大括号前换行，右大括号后有else，不用换行</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">"ok"</span>);</span><br><span class="line">    <span class="comment">// 在右大括号后直接结束，则必须换行</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li><p><strong>【强制】</strong>注释的双斜线与注释内容之间有且仅有一个空格。<br> 正例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这是示例注释，请注意在双斜线之后有一个空格</span></span><br><span class="line">String ygb = <span class="keyword">new</span> String();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>【强制】</strong>单行字符数限制不超过 120 个，超出需要换行，换行时遵循如下原则：<br> 1 ） 第二行相对第一行缩进 4 个空格，从第三行开始，不再继续缩进，参考示例。<br> 2 ） 运算符与下文一起换行。<br> 3 ） 方法调用的点符号与下文一起换行。<br> 4 ） 方法调用中的多个参数需要换行时，在逗号后进行。<br> 5 ） 在括号前不要换行，见反例。<br> 正例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">StringBuffer sb = <span class="keyword">new</span> StringBuffer();</span><br><span class="line"><span class="comment">// 超过 120 个字符的情况下，换行缩进 4 个空格，点号和方法名称一起换行</span></span><br><span class="line">sb.append(<span class="string">"zi"</span>).append(<span class="string">"xin"</span>)...</span><br><span class="line">.append(<span class="string">"huang"</span>)...</span><br><span class="line">.append(<span class="string">"huang"</span>)...</span><br><span class="line">.append(<span class="string">"huang"</span>);</span><br></pre></td></tr></table></figure>
+<p> 反例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">StringBuffer sb = <span class="keyword">new</span> StringBuffer();</span><br><span class="line"><span class="comment">// 超过 120 个字符的情况下，不要在括号前换行</span></span><br><span class="line">sb.append(<span class="string">"zi"</span>).append(<span class="string">"xin"</span>)...append</span><br><span class="line">(<span class="string">"huang"</span>);</span><br><span class="line"><span class="comment">// 参数很多的方法调用可能超过 120 个字符，不要在逗号前换行</span></span><br><span class="line">method(args1, args2, args3, ...</span><br><span class="line">, argsX);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>【强制】</strong>方法参数在定义和传入时，多个参数逗号后边必须加空格。<br> 正例：下例中实参的args1，后边必须要有一个空格。</p>
+<pre><code>method(args1, args2, args3);
+</code></pre></li>
+<li><strong>【强制】</strong>IDE的<code>text file encoding</code>设置为<code>UTF- 8</code> ; IDE中文件的换行符使用<code>Unix</code>格式，不要使用<code>Windows</code>格式。</li>
+<li><p><strong>【推荐】</strong>单个方法的总行数不超过 <code>80</code> 行。</p>
+<blockquote>
+<p>说明：包括方法签名、结束右大括号、方法内代码、注释、空行、回车及任何不可见字符的总行数不超过 80 行。</p>
+</blockquote>
+<p>正例：代码逻辑分清红花和绿叶，个性和共性，绿叶逻辑单独出来成为额外方法，使主干代码更加清晰；共性逻辑抽取成为共性方法，便于复用和维护。</p>
+</li>
+<li><p><strong>【推荐】</strong>没有必要增加若干空格来使某一行的字符与上一行对应位置的字符对齐。<br>正例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> one = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">long</span> two = <span class="number">2L</span>;</span><br><span class="line"><span class="keyword">float</span> three = <span class="number">3F</span>;</span><br><span class="line">StringBuffer sb = <span class="keyword">new</span> StringBuffer();</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>说明：增加sb这个变量，如果需要对齐，则给a、b、c都要增加几个空格，在变量比较多的情况下，是非常累赘的事情。</p>
+</blockquote>
+</li>
+<li><p><strong>【推荐】</strong>不同逻辑、不同语义、不同业务的代码之间插入一个空行分隔开来以提升可读性。</p>
+<blockquote>
+<p>说明：任何情形，没有必要插入多个空行进行隔开。</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="四-OOP规约"><a href="#四-OOP规约" class="headerlink" title="(四) OOP规约"></a>(四) OOP规约</h3><ol>
+<li><strong>【强制】</strong>避免通过一个类的对象引用访问此类的静态变量或静态方法，无谓增加编译器解析成本，直接用类名来访问即可。</li>
+<li><p><strong>【强制】</strong>所有的覆写方法，必须加<code>@Override</code>注解。</p>
+<blockquote>
+<p>说明：<code>getObject()</code>与<code>get 0 bject()</code>的问题。一个是字母的<code>O</code>，一个是数字的 <code>0</code> ，加<code>@Override</code>可以准确判断是否覆盖成功。另外，如果在抽象类中对方法签名进行修改，其实现类会马上编译报错。</p>
+</blockquote>
+</li>
+<li><p><strong>【强制】</strong>相同参数类型，相同业务含义，才可以使用<code>Java</code>的可变参数，避免使用<code>Object</code>。</p>
+<blockquote>
+<p>说明：可变参数必须放置在参数列表的最后。（提倡同学们尽量不用可变参数编程）</p>
+</blockquote>
+<p> 正例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;User&gt; <span class="title">listUsers</span><span class="params">(String type, Long... ids)</span> </span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>【强制】</strong>外部正在调用或者二方库依赖的接口，不允许修改方法签名，避免对接口调用方产生影响。接口过时必须加<code>@Deprecated</code>注解，并清晰地说明采用的新接口或者新服务是什么。</p>
+</li>
+<li><p><strong>【强制】</strong>不能使用过时的类或方法。</p>
+<blockquote>
+<p>说明：<code>java.net.URLDecoder</code> 中的方法<code>decode(String encodeStr)</code> 这个方法已经过时，应该使用双参数<code>decode(String source, String encode)</code>。接口提供方既然明确是过时接口，那么有义务同时提供新的接口；作为调用方来说，有义务去考证过时方法的新实现是什么。</p>
+</blockquote>
+</li>
+<li><p><strong>【强制】</strong><code>Object</code>的<code>equals</code>方法容易抛空指针异常，应使用常量或确定有值的对象来调用<code>equals</code>。<br> 正例：<code>&quot;test&quot;.equals(object);</code><br> 反例：<code>object.equals(&quot;test&quot;);</code><br> 说明：推荐使用<code>java.util.Objects#equals（JDK 7 引入的工具类）</code></p>
+</li>
+<li><p><strong>【强制】</strong>所有的相同类型的包装类对象之间值的比较，全部使用<code>equals</code>方法比较。</p>
+<blockquote>
+<p>说明：对于<code>Integer var =?</code> 在<code>-128 至 127</code> 范围内的赋值，<code>Integer</code>对象是在<code>IntegerCache.cache</code>产生，会复用已有对象，这个区间内的<code>Integer</code>值可以直接使用<code>==</code>进行判断，但是这个区间之外的所有数据，都会在堆上产生，并不会复用已有对象，这是一个大坑，推荐使用<code>equals</code>方法进行判断。</p>
+</blockquote>
+</li>
+<li><p>关于基本数据类型与包装数据类型的使用标准如下：<br> 1 ）<strong>【强制】</strong>所有的<code>POJO</code>类属性必须使用包装数据类型。<br> 2 ）<strong>【强制】</strong><code>RPC</code>方法的返回值和参数必须使用包装数据类型。<br> 3 ）<strong>【推荐】</strong>所有的局部变量使用基本数据类型。</p>
+<blockquote>
+<p>说明：<code>POJO</code>类属性没有初值是提醒使用者在需要使用时，必须自己显式地进行赋值，任何<code>NPE</code>问题，或者入库检查，都由使用者来保证。</p>
+</blockquote>
+<p> 正例：数据库的查询结果可能是<code>null</code>，因为自动拆箱，用基本数据类型接收有<code>NPE</code>风险。<br> 反例：比如显示成交总额涨跌情况，即正负<code>x%</code>，<code>x</code>为基本数据类型，调用的<code>RPC</code>服务，调用<code>不成功</code>时，返回的是<code>默认值</code>，页面显示为<code>0%</code>，这是不合理的，应该显示成中划线。所以包装数据类型的<code>null</code>值，能够表示额外的信息，如：远程调用失败，异常退出。</p>
+</li>
+<li><p><strong>【强制】</strong>定义<code>DO</code>/<code>DTO</code>/<code>VO</code>等<code>POJO</code>类时，不要设定任何属性默认值。<br> 反例：<code>POJO</code>类的<code>gmtCreate</code>默认值为<code>new Date()</code>，但是这个属性在数据提取时并没有置入具体值，在更新其它字段时又附带更新了此字段，导致创建时间被修改成当前时间。</p>
+</li>
+<li><p><strong>【强制】</strong>序列化类新增属性时，请不要修改<code>serialVersionUID</code>字段，避免反序列失败；如果完全不兼容升级，避免反序列化混乱，那么请修改s<code>erialVersionUID</code>值。</p>
+<blockquote>
+<p>说明：注意<code>serialVersionUID</code>不一致会抛出序列化运行时异常。</p>
+</blockquote>
+</li>
+<li><p><strong>【强制】</strong>构造方法里面禁止加入任何业务逻辑，如果有初始化逻辑，请放在<code>init</code>方法中。</p>
+</li>
+<li><p><strong>【强制】</strong><code>POJO</code>类必须写<code>toString</code>方法。使用IDE中的工具：<code>source&gt; generate toString</code>时，如果继承了另一个<code>POJO</code>类，注意在前面加一下<code>super.toString</code>。</p>
+<blockquote>
+<p>说明：在方法执行抛出异常时，可以直接调用<code>POJO</code>的<code>toString()</code>方法打印其属性值，便于排查问题。</p>
+</blockquote>
+</li>
+<li><p><strong>【强制】</strong>禁止在<code>POJO类</code>中，同时存在对应属性<code>xxx</code>的<code>isXxx()</code>和<code>getXxx()</code>方法。</p>
+<blockquote>
+<p>说明：框架在调用属性<code>xxx</code>的提取方法时，并不能确定哪个方法一定是被优先调用到。</p>
+</blockquote>
+</li>
+<li><p><strong>【推荐】</strong>使用索引访问用<code>String</code>的<code>split</code>方法得到的数组时，需做最后一个分隔符后有无内容的检查，否则会有抛<code>IndexOutOfBoundsException</code>的风险。<br>说明：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String str = <span class="string">"a,b,c,,"</span>;</span><br><span class="line">String[] ary = str.split(<span class="string">","</span>);</span><br><span class="line"><span class="comment">// 预期大于 3 ，结果是 3</span></span><br><span class="line">System.out.println(ary.length);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>【推荐】</strong>当一个类有多个构造方法，或者多个同名方法，这些方法应该按顺序放置在一起，便于阅读，此条规则优先于第 16 条规则。</p>
+</li>
+<li><p><strong>【推荐】</strong> 类内方法定义的顺序依次是：公有方法或保护方法 &gt; 私有方法 &gt; <code>getter</code>/ <code>setter</code>方法。</p>
+<blockquote>
+<p>说明：公有方法是类的调用者和维护者最关心的方法，首屏展示最好；保护方法虽然只是子类关心，也可能是”模板设计模式”下的核心方法；而私有方法外部一般不需要特别关心，是一个黑盒实现；因为承载的信息价值较低，所有<code>Service</code>和<code>DAO</code>的<code>getter</code>/<code>setter</code>方法放在类体最后。</p>
+</blockquote>
+</li>
+<li><p><strong>【推荐】</strong><code>setter</code>方法中，<code>参数名称与类成员变量名称一致</code>，<code>this.成员名 = 参数名</code>。在<code>getter</code>/<code>setter</code>方法中，不要增加<code>业务逻辑</code>，增加排查问题的难度。<br>反例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Integer <span class="title">getData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (condition) &#123;</span><br><span class="line">     <span class="keyword">return</span> <span class="keyword">this</span>.data + <span class="number">100</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">     <span class="keyword">return</span> <span class="keyword">this</span>.data - <span class="number">100</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>【推荐】</strong>循环体内，字符串的连接方式，使用<code>StringBuilder</code>的<code>append</code>方法进行扩展。</p>
+<blockquote>
+<p>说明：下例中，反编译出的字节码文件显示每次循环都会<code>new</code>出一个<code>StringBuilder</code>对象，然后进行<code>append</code>操作，最后通过<code>toString</code>方法返回<code>String</code>对象，造成内存资源浪费。</p>
+</blockquote>
+<p>反例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String str = <span class="string">"start"</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">    str = str + <span class="string">"hello"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>【推荐】</strong><code>final</code>可以声明类、成员变量、方法、以及本地变量，下列情况使用<code>final</code>关键字：<br>1 ）不允许被继承的类，如：<code>String</code>类。<br>2 ）不允许修改引用的域对象。<br>3 ）不允许被重写的方法，如：<code>POJO</code>类的<code>setter</code>方法。<br>4 ）不允许运行过程中重新赋值的局部变量。<br>5 ）避免上下文重复使用一个变量，使用<code>final</code>描述可以强制重新定义一个变量，方便更好<br>地进行重构。</p>
+</li>
+<li><strong>【推荐】</strong>慎用<code>Object</code>的<code>clone</code>方法来拷贝对象。<br>说明：对象的<code>clone</code>方法默认是<code>浅拷贝</code>，若想实现深拷贝需要重写<code>clone</code>方法实现域对象的<code>深度遍历式拷贝</code>。</li>
+<li><p><strong>【推荐】</strong>类成员与方法访问控制从严：<br>1 ）如果不允许外部直接通过<code>new</code>来创建对象，那么构造方法必须是<code>private</code>。<br>2 ）工具类不允许有<code>public</code>或<code>default</code>构造方法。<br>3 ）类非<code>static</code>成员变量并且与子类共享，必须是<code>protected</code>。<br>4 ）类非<code>static</code>成员变量并且仅在本类使用，必须是<code>private</code>。<br>5 ）类<code>static</code>成员变量如果仅在本类使用，必须是<code>private</code>。<br>6 ）若是<code>static</code>成员变量，考虑是否为<code>final</code>。<br>7 ）类成员方法只供类内部调用，必须是<code>private</code>。<br>8 ）类成员方法只对继承类公开，那么限制为<code>protected</code>。</p>
+<blockquote>
+<p>说明：任何类、方法、参数、变量，严控访问范围。过于宽泛的访问范围，不利于模块解耦。</p>
+</blockquote>
+<blockquote>
+<p>思考：如果是一个<code>private</code>的方法，想删除就删除，可是一个<code>public</code>的<code>service</code>成员方法或成员变量，删除一下，不得手心冒点汗吗？变量像自己的小孩，尽量在自己的视线内，变量作用域太大，无限制的到处跑，那么你会担心的。</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="五-集合处理"><a href="#五-集合处理" class="headerlink" title="(五) 集合处理"></a>(五) 集合处理</h3><ol>
+<li><p><strong>【强制】</strong>关于<code>hashCode</code>和<code>equals</code>的处理，遵循如下规则：<br> 1 ）只要重写<code>equals</code>，就必须重写<code>hashCode</code>。<br> 2 ）因为<code>Set</code>存储的是不重复的对象，依据<code>hashCode</code>和<code>equals</code>进行判断，所以<code>Set</code>存储的对象必须重写这两个方法。<br> 3 ）如果自定义对象作为<code>Map</code>的键，那么必须重写<code>hashCode</code>和<code>equals</code>。</p>
+<blockquote>
+<p>说明：<code>String</code>重写了<code>hashCode</code>和<code>equals</code>方法，所以我们可以非常愉快地使用<code>String</code>对象作为<code>key</code>来使用。</p>
+</blockquote>
+</li>
+<li><p><strong>【强制】</strong> <code>ArrayList</code>的<code>subList</code>结果不可强转成<code>ArrayList</code>，否则会抛出<code>ClassCastException</code>异常，即<code>java.util.RandomAccessSubList cannot be cast to java.util.ArrayList</code>。</p>
+<blockquote>
+<p>说明：<code>subList</code> 返回的是 <code>ArrayList</code>的内部类 <code>SubList</code>，并不是 <code>ArrayList</code>而是<code>ArrayList</code>的一个视图，对于<code>SubList</code>子列表的所有操作最终会反映到原列表上。</p>
+</blockquote>
+</li>
+<li><p><strong>【强制】</strong>在<code>subList</code>场景中，高度注意对原集合元素的增加或删除，均会导致子列表的遍历、增加、删除产生<code>ConcurrentModificationException</code> 异常。</p>
+</li>
+<li><p><strong>【强制】</strong>使用集合转数组的方法，必须使用集合的<code>toArray(T[] array)</code>，传入的是类型完全一样的数组，大小就是<code>list.size()</code>。</p>
+<blockquote>
+<p>说明：使用<code>toArray</code>带参方法，入参分配的数组空间不够大时，<code>toArray</code>方法内部将重新分配内存空间，并返回新数组地址；如果数组元素个数大于实际所需，下标为<code>[ list.size() ]</code>的数组元素将被置为<code>null</code>，其它数组元素保持原值，因此最好将方法入<code>参数组大小定义</code>与<code>集合元素个数一致</code>。</p>
+</blockquote>
+<p> 正例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;(<span class="number">2</span>);</span><br><span class="line">list.add(<span class="string">"guan"</span>);</span><br><span class="line">list.add(<span class="string">"bao"</span>);</span><br><span class="line">String[] array = <span class="keyword">new</span> String[list.size()];</span><br><span class="line">array = list.toArray(array);</span><br></pre></td></tr></table></figure>
+<p> 反例：直接使用<code>toArray</code>无参方法存在问题，此方法返回值只能是<code>Object[]</code>类，若强转其它类型数组将出现<code>ClassCastException</code>错误。</p>
+</li>
+<li><p><strong>【强制】</strong>使用工具类<code>Arrays.asList()</code>把数组转换成集合时，不能使用其修改集合相关的方法，它的<code>add/remove/clear</code>方法会抛出<code>UnsupportedOperationException</code>异常。</p>
+<blockquote>
+<p>说明：<code>asList</code>的返回对象是一个<code>Arrays</code>内部类，并没有实现集合的修改方法。<code>Arrays.asList</code>体现的是适配器模式，只是转换接口，后台的数据仍是数组。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">String[] str = <span class="keyword">new</span> String[] &#123; <span class="string">"you"</span>, <span class="string">"wu"</span> &#125;;</span><br><span class="line">List list = Arrays.asList(str);</span><br><span class="line"><span class="comment">//第一种情况：</span></span><br><span class="line">list.add(<span class="string">"yangguanbao"</span>); <span class="comment">//运行时异常。</span></span><br><span class="line"><span class="comment">//第二种情况：</span></span><br><span class="line">str[<span class="number">0</span>] = <span class="string">"gujin"</span>; <span class="comment">//那么list.get(0)也会随之修改。</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><strong>【强制】</strong>泛型通配符<code>&lt;? extends T&gt;</code>来接收返回的数据，此写法的泛型集合不能使用<code>add</code>方法，而<code>&lt;? super T&gt;</code>不能使用<code>get</code>方法，作为接口调用赋值时易出错。</p>
+<blockquote>
+<p>说明：扩展说一下<code>PECS(Producer Extends Consumer Super)</code>原则：第一、频繁往外读取内容的，适合用<code>&lt;? extends T&gt;</code>。第二、经常往里插入的，适合用<code>&lt;? super T&gt;</code>。</p>
+</blockquote>
+</li>
+<li><p><strong>【强制】</strong>不要在<code>foreach</code>循环里进行元素的<code>remove</code>/<code>add</code>操作。<code>remove</code>元素请使用<code>Iterator</code>方式，如果并发操作，需要对<code>Iterator</code>对象加锁。<br> 正例：</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">list.add(<span class="string">"1"</span>);</span><br><span class="line">list.add(<span class="string">"2"</span>);</span><br><span class="line">Iterator&lt;String&gt; iterator = list.iterator();</span><br><span class="line"><span class="keyword">while</span> (iterator.hasNext()) &#123;</span><br><span class="line">    String item = iterator.next();</span><br><span class="line">    <span class="keyword">if</span> (删除元素的条件) &#123;</span><br><span class="line">        iterator.remove();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 反例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (String item : list) &#123;</span><br><span class="line">	<span class="keyword">if</span> (<span class="string">"1"</span>.equals(item)) &#123;</span><br><span class="line">		list.remove(item);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>说明：以上代码的执行结果肯定会出乎大家的意料，那么试一下把”1”换成”2”，会是同样的结果吗？</p>
+</blockquote>
+<ol start="8">
+<li><p><strong>【强制】</strong> 在<code>JDK 7</code> 版本及以上，<code>Comparator</code>实现类要满足如下三个条件，不然<code>Arrays.sort</code>，<code>Collections.sort</code>会报<code>IllegalArgumentException</code>异常。</p>
+<blockquote>
+<p>说明：三个条件如下</p>
+<pre><code>1 ） x，y的比较结果和y，x的比较结果相反。
+2 ） x&gt;y，y&gt;z，则x&gt;z。
+3 ） x=y，则x，z比较结果和y，z比较结果相同。
+</code></pre></blockquote>
+<p> 反例：下例中没有处理相等的情况，实际使用中可能会出现异常：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Comparator&lt;Student&gt;() &#123;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Student o1, Student o2)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> o1.getId() &gt; o2.getId()? <span class="number">1</span> : -<span class="number">1</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>【推荐】</strong>集合泛型定义时，在<code>JDK7</code>及以上，使用<code>diamond</code>语法或全省略。</p>
+<blockquote>
+<p>说明：菱形泛型，即<code>diamond</code>，直接使用<code>&lt;&gt;</code>来指代前边已经指定的类型。</p>
+</blockquote>
+<p> 正例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//diamond方式</span></span><br><span class="line">HashMap&lt;String, String&gt; userCache = <span class="keyword">new</span> HashMap&lt;String, String&gt;(<span class="number">16</span>);</span><br><span class="line"><span class="comment">//全省略方式</span></span><br><span class="line">ArrayList&lt;User&gt; users = <span class="keyword">new</span> ArrayList(<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="10">
+<li><p><strong>【推荐】</strong>集合初始化时，指定集合<code>初始值大小</code>。</p>
+<blockquote>
+<p>说明：<code>HashMap</code>使用<code>HashMap(int initialCapacity)</code> 初始化。</p>
+</blockquote>
+<p>正例：<code>initialCapacity = (需要存储的元素个数 / 负载因子) + 1</code>。注意<code>负载因子（即loaderfactor）默认为0.75</code>，如果暂时无法确定初始值大小，请设置为 16 （即默认值）。<br>反例：<code>HashMap</code>需要放置 <code>1024</code> 个元素，由于没有设置容量初始大小，随着元素不断增加，容量 <code>7</code> 次被迫扩大，<code>resize</code>需要重建<code>hash表</code>，严重影响<code>性能</code>。</p>
+</li>
+<li><p><strong>【推荐】</strong>使用<code>entrySet</code>遍历<code>Map</code>类集合<code>KV</code>，而不是<code>keySet</code>方式进行遍历。</p>
+<blockquote>
+<p>说明：<code>keySet</code>其实是遍历了 <code>2</code> 次，一次是转为<code>Iterator</code>对象，另一次是从<code>hashMap</code>中取出<code>key</code>所对应的<code>value</code>。而<code>entrySet</code>只是遍历了一次就把<code>key</code>和<code>value</code>都放到了<code>entry</code>中，效率更高。如果是<code>JDK 8</code> ，使用<code>Map.foreach</code>方法。</p>
+</blockquote>
+<p>正例：<code>values()</code>返回的是<code>V值</code>集合，是一个<code>list</code>集合对象；<code>keySet()</code>返回的是<code>K值</code>集合，是一个<code>Set集合</code>对象；<code>entrySet()</code>返回的是<code>K-V值</code>组合集合。</p>
+</li>
+<li><strong>【推荐】</strong>高度注意<code>Map</code>类集合<code>K/V</code>能不能存储<code>null</code>值的情况，如下表格：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>集合类</th>
+<th>Key</th>
+<th>Value</th>
+<th>Super</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hashtable</td>
+<td><code>不允许为null</code></td>
+<td><code>不允许为null</code></td>
+<td>Dictionary</td>
+<td><code>线程安全</code></td>
+</tr>
+<tr>
+<td>ConcurrentHashMap</td>
+<td><code>不允许为null</code></td>
+<td><code>不允许为null</code></td>
+<td>AbstractMap</td>
+<td><code>锁分段技术（JDK8:CAS）</code></td>
+</tr>
+<tr>
+<td>TreeMap</td>
+<td><code>不允许为null</code></td>
+<td><code>允许为null</code></td>
+<td>AbstractMap</td>
+<td><code>线程不安全</code></td>
+</tr>
+<tr>
+<td>HashMap</td>
+<td><code>允许为null</code></td>
+<td><code>允许为null</code></td>
+<td>AbstractMap</td>
+<td><code>线程不安全</code></td>
+</tr>
+</tbody>
+</table>
+<p>反例： 由于<code>HashMap</code>的干扰，很多人认为<code>ConcurrentHashMap</code>是可以置入<code>null</code>值，而事实上，存储<code>null</code>值时会抛出<code>NPE异常</code>。</p>
+<ol start="13">
+<li><p>【参考】合理利用好集合的<code>有序性(sort)</code>和<code>稳定性(order)</code>，避免集合的<code>无序性(unsort)</code>和<code>不稳定性(unorder)</code>带来的负面影响。</p>
+<blockquote>
+<p>说明：有序性是指遍历的结果是按某种比较规则依次排列的。稳定性指集合每次遍历的元素次序是一定的。如：<code>ArrayList</code>是<code>order</code>/<code>unsort</code>；<code>HashMap</code>是<code>unorder</code>/<code>unsort</code>；<code>TreeSet</code>是<code>order</code>/<code>sort</code>。</p>
+</blockquote>
+</li>
+<li><p>【参考】利用<code>Set</code>元素唯一的特性，可以快速对一个集合进行<code>去重</code>操作，避免使用<code>Lis</code>t的<code>contains</code>方法进行遍历、对比、去重操作。</p>
+</li>
+</ol>
+<h3 id="六-并发处理"><a href="#六-并发处理" class="headerlink" title="(六) 并发处理"></a>(六) 并发处理</h3><ol>
+<li><p><strong>【强制】</strong>获取单例对象需要保证线程安全，其中的方法也要保证线程安全。</p>
+<blockquote>
+<p>说明：资源驱动类、工具类、单例工厂类都需要注意。</p>
+</blockquote>
+</li>
+<li><p><strong>【强制】</strong>创建线程或线程池时请指定有意义的线程名称，方便出错时回溯。</p>
+</li>
+</ol>
+<p>正例：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TimerTaskThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">TimerTaskThread</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>.setName(<span class="string">"TimerTaskThread"</span>);</span><br><span class="line">	...</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ol start="3">
+<li><p><strong>【强制】</strong>线程资源必须通过<code>线程池</code>提供，<code>不允许在应用中自行显式创建线程</code>。</p>
+<blockquote>
+<p>说明：使用线程池的好处是减少在创建和销毁线程上所消耗的时间以及系统资源的开销，解决资源不足的问题。如果不使用线程池，有可能造成系统创建大量同类线程而导致<code>消耗完内存</code>或者”<code>过度切换</code>“的问题。</p>
+</blockquote>
+</li>
+<li><p><strong>【强制】</strong>线程池不允许使用<code>Executors</code>去创建，而是通过<code>ThreadPoolExecutor</code>的方式，这样的处理方式让写的同学更加明确线程池的运行规则，规避资源耗尽的风险。</p>
+<blockquote>
+<p>说明：<code>Executors</code>返回的线程池对象的弊端如下：<br> 1 ）<code>FixedThreadPool</code>和<code>SingleThreadPool</code>:<br>允许的请求队列长度为<code>Integer.MAX_VALUE</code>，可能会堆积大量的请求，从而导致<code>OOM</code>。<br>2 ）<code>CachedThreadPool</code>和<code>ScheduledThreadPool</code>:<br>允许的创建线程数量为<code>Integer.MAX_VALUE</code>，可能会创建大量的线程，从而导致<code>OOM</code>。</p>
+</blockquote>
+</li>
+<li><p><strong>【强制】</strong><code>SimpleDateFormat</code> 是<code>线程不安全</code>的类，一般不要定义为<code>static</code>变量，如果定义为 <code>static</code>，必须加锁，或者使用<code>DateUtils</code>工具类。<br> 正例：注意线程安全，使用DateUtils。亦推荐如下处理：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> ThreadLocal&lt;DateFormat&gt; df = <span class="keyword">new</span> ThreadLocal&lt;DateFormat&gt;() &#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">     <span class="function"><span class="keyword">protected</span> DateFormat <span class="title">initialValue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>);</span><br><span class="line">     &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>说明：如果是<code>JDK 8</code> 的应用，可以使用<code>Instant</code>代替<code>Date</code>，<code>LocalDateTime</code>代替<code>Calendar</code>，<code>DateTimeFormatter</code>代替<code>SimpleDateFormat</code>，官方给出的解释：<code>simple beautiful stron immutable thread-safe</code>。</p>
+</blockquote>
+</li>
+<li><p><strong>【强制】</strong>高并发时，同步调用应该去考量<code>锁的性能损耗</code>。能用无锁数据结构，就不要用锁；能锁区块，就不要锁整个方法体；能用对象锁，就不要用类锁。</p>
+<blockquote>
+<p>说明：尽可能使加锁的代码块工作量尽可能的小，避免在锁代码块中调用<code>RPC</code>方法。</p>
+</blockquote>
+</li>
+<li><p><strong>【强制】</strong>对多个资源、数据库表、对象同时加锁时，需要保持<code>一致的加锁顺序</code>，否则可能会造成<code>死锁</code>。</p>
+<blockquote>
+<p>说明：线程一需要对表A、B、C依次全部加锁后才可以进行更新操作，那么线程二的加锁顺序也必须是A、B、C，否则可能出现死锁。</p>
+</blockquote>
+</li>
+<li><p><strong>【强制】</strong>并发修改同一记录时，避免更新丢失，需要加锁。<code>要么在应用层加锁，要么在缓存加锁，要么在数据库层使用乐观锁，使用version作为更新依据</code>。</p>
+<blockquote>
+<p>说明：如果每次访问冲突概率小于<code>20%</code>，推荐使用乐观锁，否则使用悲观锁。乐观锁的重试次数不得小于 <code>3</code> 次。</p>
+</blockquote>
+</li>
+<li><p><strong>【强制】</strong>多线程并行处理定时任务时，<code>Timer</code>运行多个<code>TimeTask</code>时，只要其中之一没有捕获抛出的异常，其它任务便会自动终止运行，使用<code>ScheduledExecutorService</code>则没有这个问题。</p>
+</li>
+<li><strong>【推荐】</strong>使用<code>CountDownLatch</code>进行异步转同步操作，每个线程退出前必须调用<code>countDown</code>方法，线程执行代码注意<code>catch异常</code>，确保<code>countDown</code>方法被执行到，避免主线程无法执行至<code>await方法</code>，直到<code>超时</code>才返回结果。<blockquote>
+<p>说明：注意，子线程抛出异常堆栈，不能在主线程<code>try-catch</code>到。</p>
+</blockquote>
+</li>
+<li><p><strong>【推荐】</strong>避免<code>Random实例</code>被<code>多线程使用</code>，虽然共享该实例是<code>线程安全</code>的，但会因<code>竞争同一seed</code> 导致的<code>性能下降</code>。</p>
+<blockquote>
+<p>说明：<code>Random</code>实例包括<code>java.util.Random</code> 的实例或者 <code>Math.random()</code>的方式。</p>
+</blockquote>
+<p>正例：在<code>JDK 7</code> 之后，可以直接使用<code>API ThreadLocalRandom</code>，而在 <code>JDK 7</code> 之前，需要编码保证<code>每个线程持有一个实例</code>。</p>
+</li>
+<li><strong>【推荐】</strong>在并发场景下，通过<code>双重检查锁（double-checked locking）</code>实现延迟初始化的优化问题隐患(可参考 <code>The &quot;Double-Checked Locking is Broken&quot; Declaration</code>)，推荐解决方案中较为简单一种（<code>适用于JDK 5 及以上版本</code>），将目标属性声明为 <code>volatile</code>型。<br>反例：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">LazyInitDemo</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> Helper helper = <span class="keyword">null</span>;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> Helper <span class="title">getHelper</span><span class="params">()</span> </span>&#123;</span><br><span class="line">     <span class="keyword">if</span> (helper == <span class="keyword">null</span>) <span class="keyword">synchronized</span>(<span class="keyword">this</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (helper == <span class="keyword">null</span>)</span><br><span class="line">            helper = <span class="keyword">new</span> Helper();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> helper;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// other methods and fields...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="13">
+<li>【参考】<code>volatile</code>解决多线程内存不可见问题。对于一写多读，是可以解决变量同步问题，但是如果多写，同样无法解决线程安全问题。如果是<code>count++</code>操作，使用如下类实现：<code>AtomicInteger count = new AtomicInteger(); count.addAndGet( 1 );</code> 如果是<code>JDK 8</code> ，推荐使用<code>LongAdder</code>对象，比<code>AtomicLong</code>性能更好（减少乐观锁的重试次数）。</li>
+<li>【参考】 <code>HashMap</code>在容量不够进行<code>resize</code>时由于高并发可能出现死链，导致CPU飙升，在开发过程中可以使用其它数据结构或加锁来规避此风险。</li>
+<li>【参考】<code>ThreadLocal</code>无法解决共享对象的更新问题，<code>ThreadLocal</code>对象建议使用<code>static</code>修饰。这个变量是针对一个线程内所有操作共享的，所以设置为静态变量，所有此类实例共享此静态变量 ，也就是说在类第一次被使用时装载，只分配一块存储空间，所有此类的对象(只要是这个线程内定义的)都可以操控这个变量。</li>
+</ol>
+<h3 id="七-控制语句"><a href="#七-控制语句" class="headerlink" title="(七) 控制语句"></a>(七) 控制语句</h3><ol>
+<li><strong>【强制】</strong>在一个<code>switch</code>块内，每个<code>case</code>要么通过<code>break</code>/<code>return</code>等来终止，要么注释说明程序将继续执行到哪一个<code>case</code>为止；在一个<code>switch</code>块内，都必须包含一个<code>default</code>语句并且放在最后，即使空代码。</li>
+<li><strong>【强制】</strong>在<code>if</code>/<code>else</code>/<code>for</code>/<code>while</code>/<code>do</code>语句中必须使用大括号。即使只有一行代码，避免采用单行的编码方式：<code>if (condition) statements;</code></li>
+<li><p><strong>【强制】</strong>在高并发场景中，避免使用<code>&quot;等于&quot;</code>判断作为中断或退出的条件。</p>
+<blockquote>
+<p>说明：如果并发控制没有处理好，容易产生等值判断被”<code>击穿</code>“的情况，使用大于或小于的区间判断条件来代替。</p>
+</blockquote>
+<p> 反例：判断剩余奖品数量等于 0 时，终止发放奖品，但因为并发处理错误导致奖品数量瞬间变成了负数，这样的话，活动无法终止。</p>
+</li>
+<li><p><strong>【推荐】</strong>表达异常的分支时，少用<code>if-else</code>方式，这种方式可以改写成：</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (condition) &#123;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>说明：如果非得使用if()…else if()…else…方式表达逻辑，<strong>【强制】</strong>避免后续代码维护困难，请勿超过 <code>3</code> 层。    </p>
+</blockquote>
+<p>正例：超过 <code>3</code> 层的 <code>if-else</code> 的逻辑判断代码可以使用卫语句、策略模式、状态模式等来实现，其中卫语句示例如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">today</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (isBusy()) &#123;</span><br><span class="line">		System.out.println(<span class="string">"change time."</span>);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (isFree()) &#123;</span><br><span class="line">		System.out.println(<span class="string">"go to travel."</span>);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(<span class="string">"stay at home to learn Alibaba Java Coding Guidelines."</span>);</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ol start="5">
+<li><p><strong>【推荐】</strong>除常用方法（如<code>getXxx</code>/<code>isXxx</code>）等外，不要在条件判断中执行其它复杂的语句，将复杂逻辑判断的结果赋值给一个有意义的布尔变量名，以提高可读性。</p>
+<blockquote>
+<p>说明：很多<code>if</code>语句内的逻辑相当复杂，阅读者需要分析条件表达式的最终结果，才能明确什么样的条件执行什么样的语句，那么，如果阅读者分析逻辑表达式错误呢？</p>
+</blockquote>
+<p> 正例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 伪代码如下</span></span><br><span class="line"><span class="keyword">final</span> <span class="keyword">boolean</span> existed = (file.open(fileName, <span class="string">"w"</span>) != <span class="keyword">null</span>) &amp;&amp; (...) || (...);</span><br><span class="line"><span class="keyword">if</span> (existed) &#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 反例：</p>
+<pre><code>if ((file.open(fileName, &quot;w&quot;) != null) &amp;&amp; (...) || (...)) {
+...
+}
+</code></pre></li>
+<li><p><strong>【推荐】</strong>循环体中的语句要考量性能，以下操作尽量移至循环体外处理，如定义对象、变量、获取数据库连接，进行不必要的<code>try-catch</code>操作（这个<code>try-catch</code>是否可以移至循环体外）。</p>
+</li>
+<li><p><strong>【推荐】</strong>避免采用取反逻辑运算符。</p>
+<blockquote>
+<p>说明：取反逻辑不利于快速理解，并且取反逻辑写法必然存在对应的正向逻辑写法。</p>
+</blockquote>
+<p> 正例：<code>使用if (x &lt; 628) 来表达 x 小于 628</code> 。<br> 反例：<code>使用if (!(x &gt;= 628)) 来表达 x 小于 628</code> 。</p>
+</li>
+<li><strong>【推荐】</strong>接口入参保护，这种场景常见的是用作批量操作的接口。</li>
+<li>【参考】下列情形，需要进行参数校验：<br> 1 ）调用频次低的方法。<br> 2 ）执行时间开销很大的方法。此情形中，参数校验时间几乎可以忽略不计，但如果因为参数错误导致中间执行回退，或者错误，那得不偿失。<br> 3 ）需要极高稳定性和可用性的方法。<br> 4 ）对外提供的开放接口，不管是<code>RPC</code>/<code>API</code>/<code>HTTP</code>接口。<br> 5 ） 敏感权限入口。</li>
+<li>【参考】下列情形，不需要进行参数校验：<br>1 ）极有可能被循环调用的方法。但在方法说明里必须注明外部参数检查要求。<br>2 ）底层调用频度比较高的方法。毕竟是像纯净水过滤的最后一道，参数错误不太可能到底层才会暴露问题。一般<code>DAO</code>层与<code>Service</code>层都在同一个应用中，部署在同一台服务器中，所以<code>DAO</code>的参数校验，可以省略。<br>3 ）被声明成<code>private</code>只会被自己代码所调用的方法，如果能够确定调用方法的代码传入参数已经做过检查或者肯定不会有问题，此时可以不校验参数。</li>
+</ol>
+<h3 id="八-注释规约"><a href="#八-注释规约" class="headerlink" title="(八) 注释规约"></a>(八) 注释规约</h3><ol>
+<li><p><strong>【强制】</strong>类、类属性、类方法的注释必须使用<a href="https://blog.csdn.net/garfielder007/article/details/54959597" target="_blank" rel="noopener"><code>Javadoc规范</code></a>，使用<code>/**内容*/</code>格式，不得使用<code>// xxx</code>方式。</p>
+<blockquote>
+<p>说明：在IDE编辑窗口中，<code>Javadoc</code>方式会提示相关注释，生成<code>Javadoc</code>可以正确输出相应注释；在IDE中，工程调用方法时，不进入方法即可悬浮提示方法、参数、返回值的意义，提高阅读效率。</p>
+</blockquote>
+</li>
+<li><p><strong>【强制】</strong>所有的抽象方法（包括接口中的方法）必须要用<code>Javadoc</code>注释、除了返回值、参数、异常说明外，还必须指出该方法做什么事情，实现什么功能。</p>
+<blockquote>
+<p>说明：对子类的实现要求，或者调用注意事项，请一并说明。</p>
+</blockquote>
+</li>
+<li><p><strong>【强制】</strong>所有的类都必须添加<code>创建者</code>和<code>创建日期</code>。</p>
+</li>
+<li><strong>【强制】</strong>方法内部单行注释，在被注释语句上方另起一行，使用<code>//</code>注释。方法内部多行注释使用<code>/* */</code>注释，注意与代码对齐。</li>
+<li><strong>【强制】</strong>所有的枚举类型字段必须要有注释，说明每个数据项的用途。</li>
+<li><strong>【推荐】</strong>与其”半吊子”英文来注释，不如用中文注释把问题说清楚。专有名词与关键字保持英文原文即可。<br> 反例：”<code>TCP</code>连接超时”解释成”传输控制协议连接超时”，理解反而费脑筋。</li>
+<li><p><strong>【推荐】</strong>代码修改的同时，注释也要进行相应的修改，尤其是参数、返回值、异常、核心逻辑等的修改。</p>
+<blockquote>
+<p>说明：代码与注释更新不同步，就像路网与导航软件更新不同步一样，如果导航软件严重滞后，就失去了导航的意义。</p>
+</blockquote>
+</li>
+<li><p>【参考】谨慎注释掉代码。在上方详细说明，而不是简单地注释掉。如果无用，则删除。</p>
+<blockquote>
+<p>说明：代码被注释掉有两种可能性：<br> 1 ）后续会恢复此段代码逻辑。<br> 2 ）永久不用。前者如果没有备注信息，难以知晓注释动机。后者建议直接删掉（代码仓库保存了历史代码）。</p>
+</blockquote>
+</li>
+</ol>
+<ol start="9">
+<li>【参考】对于注释的要求：第一、<code>能够准确反应设计思想和代码逻辑</code>；第二、<code>能够描述业务含义，使别的程序员能够迅速了解到代码背后的信息</code>。完全没有注释的大段代码对于阅读者形同天书，注释是给自己看的，即使隔很长时间，也能清晰理解当时的思路；注释也是给继任者看的，使其能够快速接替自己的工作。</li>
+<li><p>【参考】好的命名、代码结构是自解释的，注释力求精简准确、表达到位。避免出现注释的一个极端：过多过滥的注释，代码的逻辑一旦修改，修改注释是相当大的负担。<br>反例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// put elephant into fridge</span><br><span class="line">put(elephant, fridge);</span><br><span class="line">//方法名put，加上两个有意义的变量名elephant和fridge，已经说明了这是在干什么，语义清晰的代码不需要额外的注释。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>【参考】特殊注释标记，请注明标记人与标记时间。注意及时处理这些标记，通过标记扫描，经常清理此类标记。线上故障有时候就是来源于这些标记处的代码。<br>1 ） <code>待办事宜（TODO</code>）:（ 标记人，标记时间，[预计处理时间]）表示需要实现，但目前还未实现的功能。这实际上是一个<code>Javadoc</code>的标签，目前的<code>Javadoc</code>还没有实现，但已经被广泛使用。只能应用于类，接口和方法（因为它是一个Javadoc标签）<br>2 ） 错误，不能工作（<code>FIXME</code>）:（标记人，标记时间，[预计处理时间]）在注释中用<code>FIXME</code>标记某代码是错误的，而且不能工作，需要及时纠正的情况。</p>
+</li>
+</ol>
+<h3 id="九-其它"><a href="#九-其它" class="headerlink" title="(九) 其它"></a>(九) 其它</h3><ol>
+<li><strong>【强制】</strong>在使用正则表达式时，利用好其预编译功能，可以有效加快正则匹配速度。<blockquote>
+<p>说明：不要在方法体内定义：<code>Pattern pattern = Pattern.compile(&quot;规则&quot;);</code></p>
+</blockquote>
+</li>
+<li><p><strong>【强制】</strong><code>velocity</code>调用<code>POJO</code>类的属性时，建议直接使用属性名取值即可，模板引擎会自动按规范调用<code>POJO</code>的<code>getXxx()</code>，如果是<code>boolean</code>基本数据类型变量（<code>boolean命名不需要加is前缀</code>），会自动调用<code>isXxx()</code>方法。</p>
+<blockquote>
+<p>说明：注意如果是<code>Boolean</code>包装类对象，优先调用<code>getXxx()</code>的方法。</p>
+</blockquote>
+</li>
+<li><p><strong>【强制】</strong>后台输送给页面的变量必须加<code>**$!{var}——**</code>中间的感叹号。</p>
+<blockquote>
+<p>说明：如果<code>var</code>等于<code>null</code>或者不存在，那么<code>${var}</code>会直接显示在页面上。</p>
+</blockquote>
+</li>
+<li><p><strong>【强制】</strong>注意 <code>Math.random()</code> 这个方法返回是<code>double</code>类型，注意取值的范围 <code>0≤x&lt;1</code>（能够取到零值，注意除零异常），如果想获取整数类型的随机数，不要将x放大 10 的若干倍然后取整，直接使用<code>Random</code>对象的<code>nextInt</code>或者<code>nextLong</code>方法。</p>
+</li>
+<li><p><strong>【强制】</strong>获取当前毫秒数<code>System.currentTimeMillis();</code> 而不是<code>new Date().getTime();</code></p>
+<blockquote>
+<p>说明：如果想获取更加精确的纳秒级时间值，使用<code>System.nanoTime()</code>的方式。在<code>JDK 8</code>中，针对统计时间等场景，推荐使用<code>Instant</code>类。</p>
+</blockquote>
+</li>
+<li><p><strong>【推荐】</strong>不要在<code>视图模板</code>中加入任何<code>复杂的逻辑</code>。</p>
+<blockquote>
+<p>说明：根据<code>MVC</code>理论，<code>视图的职责是展示</code>，不要抢模型和控制器的活。</p>
+</blockquote>
+</li>
+<li><p><strong>【推荐】</strong>任何数据结构的构造或初始化，都应<code>指定大小</code>，避免数据结构无限增长吃光内存。</p>
+</li>
+<li><p><strong>【推荐】</strong>及时清理不再使用的代码段或配置信息。</p>
+<blockquote>
+<p>说明：对于垃圾代码或过时配置，坚决清理干净，避免程序过度臃肿，代码冗余。</p>
+</blockquote>
+<p> 正例：对于暂时被注释掉，后续可能恢复使用的代码片断，在注释代码上方，统一规定使用三个斜杠<code>(///)</code>来说明注释掉代码的理由。</p>
+</li>
+</ol>
+<h2 id="二、异常日志"><a href="#二、异常日志" class="headerlink" title="二、异常日志"></a>二、异常日志</h2><h3 id="一-异常处理"><a href="#一-异常处理" class="headerlink" title="(一) 异常处理"></a>(一) 异常处理</h3><ol>
+<li><p><strong>【强制】</strong><code>Java</code> 类库中定义的可以通过预检查方式规避的<code>RuntimeException</code>异常不应该通过<code>catch</code>的方式来处理，比如：<code>NullPointerException</code>、<code>IndexOutOfBoundsException</code>等等。</p>
+<blockquote>
+<p>说明：无法通过预检查的异常除外，比如，在解析字符串形式的数字时，不得不通过catch NumberFormatException来实现。</p>
+</blockquote>
+<p> 正例：<code>if (obj != null) {...}</code><br> 反例：<code>try { obj.method(); } catch (NullPointerException e) {...}</code></p>
+</li>
+<li><p><strong>【强制】</strong>异常不要用来做流程控制，条件控制。</p>
+<blockquote>
+<p>说明：异常设计的初衷是解决程序运行中的各种意外情况，且异常的处理效率比条件判断方式要低很多。</p>
+</blockquote>
+</li>
+<li><p><strong>【强制】</strong><code>catch</code>时请分清<code>稳定代码</code>和<code>非稳定代码</code>，稳定代码指的是无论如何不会出错的代码。对于非稳定代码的<code>catch</code>尽可能进行区分异常类型，再做对应的异常处理。</p>
+<blockquote>
+<p>说明：对大段代码进行<code>try-catch</code>，使程序无法根据不同的异常做出正确的应激反应，也不利于定位问题，这是一种不负责任的表现。</p>
+</blockquote>
+<p> 正例：用户注册的场景中，如果用户输入非法字符，或用户名称已存在，或用户输入密码过于简单，在程序上作出分门别类的判断，并提示给用户。</p>
+</li>
+<li><strong>【强制】</strong><code>捕获异常</code>是为了<code>处理</code>它，不要捕获了却什么都不处理而抛弃之，如果不想处理它，请将该异常抛给它的调用者。最外层的业务使用者，必须处理异常，将其转化为用户可以理解的内容。</li>
+<li><strong>【强制】</strong>有<code>try</code>块放到了事务代码中，<code>catch</code>异常后，如果需要<code>回滚事务</code>，一定要注意<code>手动回滚事务</code>。</li>
+<li><p><strong>【强制】</strong><code>finally</code>块必须对资源对象、流对象进行关闭，有异常也要做<code>try-catch</code>。</p>
+<blockquote>
+<p>说明：如果<code>JDK 7</code> 及以上，可以使用<code>try-with-resources</code>方式。</p>
+</blockquote>
+</li>
+<li><p><strong>【强制】</strong>不要在<code>finally</code>块中使用<code>return</code>。</p>
+<blockquote>
+<p>说明：<code>finally</code>块中的<code>return</code>返回后方法结束执行，不会再执行<code>try</code>块中的<code>return</code>语句。</p>
+</blockquote>
+</li>
+<li><p><strong>【强制】</strong>捕获异常与抛异常，必须是<code>完全匹配</code>，或者<code>捕获异常是抛异常的父类</code>。</p>
+<blockquote>
+<p>说明：如果预期对方抛的是绣球，实际接到的是铅球，就会产生意外情况。</p>
+</blockquote>
+</li>
+<li><p><strong>【推荐】</strong>方法的返回值可以为<code>null</code>，不强制返回空集合，或者空对象等，必须添加注释充分说明什么情况下会返回<code>null</code>值。</p>
+<blockquote>
+<p>说明：本手册明确防止<code>NPE</code>是调用者的责任。即使被调用方法返回空集合或者空对象，对调用者来说，也并非高枕无忧，必须考虑到远程调用失败、序列化失败、运行时异常等场景返回<code>null</code>的情况。</p>
+</blockquote>
+</li>
+<li><p><strong>【推荐】</strong>防止<code>NPE</code>，是程序员的基本修养，注意<code>NPE</code>产生的场景：<br>1 ）返回类型为基本数据类型，<code>return</code>包装数据类型的对象时，自动拆箱有可能产生<code>NPE</code>。<br>反例：<code>public int f() { return Integer对象}， 如果为null，自动解箱抛NPE。</code><br>2 ） 数据库的查询结果可能为<code>null</code>。<br>3 ） 集合里的元素即使<code>isNotEmpty</code>，取出的数据元素也可能为<code>null</code>。<br>4 ） 远程调用返回对象时，一律要求进行空指针判断，防止<code>NPE</code>。<br>5 ） 对于<code>Session中</code>获取的数据，建议<code>NPE</code>检查，避免<code>空指针</code>。<br>6 ） 级联调用<code>obj.getA().getB().getC()</code>；一连串调用，易产生<code>NPE</code>。<br>正例：使用<code>JDK8</code>的<code>Optional</code>类来防止<code>NPE</code>问题。</p>
+</li>
+<li><strong>【推荐】</strong>定义时区分<code>unchecked</code> / <code>checked</code> 异常，避免直接抛出<code>new RuntimeException()</code>，更不允许抛出<code>Exception</code>或者<code>Throwable</code>，应使用有业务含义的自定义异常。推荐业界已定义过的自定义异常，如：<code>DAOException</code> / <code>ServiceException</code>等。</li>
+<li><p>【参考】对于公司外的<code>http</code>/<code>api</code>开放接口必须使用”<code>错误码</code>“；而应用内部推荐异常抛出；跨应用间<code>RPC</code>调用优先考虑使用<code>Result</code>方式，封装<code>isSuccess()</code>方法、”错误码”、”错误简短信息”。</p>
+<blockquote>
+<p>说明：关于<code>RPC</code>方法返回方式使用<code>Result</code>方式的理由：</p>
+<ul>
+<li>使用抛异常返回方式，调用方如果没有捕获到就会产生运行时错误。</li>
+<li>如果不加栈信息，只是<code>new</code>自定义异常，加入自己的理解的<code>error message</code>，对于调用端解决问题的帮助不会太多。如果加了栈信息，在频繁调用出错的情况下，数据序列化和传输的性能损耗也是问题。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>【参考】避免出现重复的代码（<code>Don’t Repeat Yourself</code>），即<code>DRY</code>原则。</p>
+<blockquote>
+<p>说明：随意复制和粘贴代码，必然会导致代码的重复，在以后需要修改时，需要修改所有的副本，容易遗漏。必要时抽取共性方法，或者抽象公共类，甚至是组件化。</p>
+</blockquote>
+<p>正例：一个类中有多个<code>public</code>方法，都需要进行数行相同的参数校验操作，这个时候请抽取：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">checkParam</span><span class="params">(DTO dto)</span> </span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="二-日志规约"><a href="#二-日志规约" class="headerlink" title="(二) 日志规约"></a>(二) 日志规约</h3><ol>
+<li><p><strong>【强制】</strong>应用中不可直接使用日志系统（<code>Log4j</code>、<code>Logback</code>）中的<code>API</code>，而应依赖使用日志框架<code>SLF4J</code>中的<code>API</code>，使用<code>门面模式</code>的日志框架，有利于维护和各个类的日志处理方式统一。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.slf4j.Logger;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger logger = LoggerFactory.getLogger(Abc.class);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>【强制】</strong>日志文件至少保存 <code>15</code> 天，因为有些异常具备以”周”为频次发生的特点。</p>
+</li>
+<li><p><strong>【强制】</strong>应用中的扩展日志（如打点、临时监控、访问日志等）命名方式：<code>appName_logType_logName.log</code>。<br><code>logType</code>:日志类型，如<code>stats</code>/<code>monitor</code>/<code>access</code>等；<code>logName</code>:日志描述。这种命名的好处：通过文件名就可知道日志文件属于什么应用，什么类型，什么目的，也有利于归类查找。<br> 正例：<code>mppserver</code>应用中单独监控时区转换异常，如：<code>ppserver_monitor_timeZoneConvert.log</code></p>
+<blockquote>
+<p>说明：推荐对日志进行分类，如将错误日志和业务日志分开存放，便于开发人员查看，也便于通过日志对系统进行及时监控。</p>
+</blockquote>
+</li>
+<li><p><strong>【强制】</strong>对<code>trace</code>/<code>debug</code>/<code>info</code>级别的日志输出，必须使用条件输出形式或者使用占位符的方式。</p>
+<blockquote>
+<p>说明：<code>logger.debug(&quot;Processing trade with id: &quot; + id + &quot; and symbol: &quot; + symbol);</code>如果日志级别是<code>warn</code>，上述日志不会打印，但是会执行字符串拼接操作，如果<code>symbol</code>是对象，会执行<code>toString()</code>方法，浪费了系统资源，执行了上述操作，最终日志却没有打印。</p>
+</blockquote>
+<p> 正例：（条件）建设采用如下方式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">	logger.debug(<span class="string">"Processing trade with id: "</span> + id + <span class="string">" and symbol: "</span> + symbol);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 正例：（占位符）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">logger.debug(<span class="string">"Processing trade with id: &#123;&#125; and symbol : &#123;&#125; "</span>, id, symbol);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>【强制】</strong>避免重复打印日志，浪费磁盘空间，务必在<code>log4j.xml</code>中设置<code>additivity=false</code>。<br> 正例：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">logger</span> <span class="attr">name</span>=<span class="string">"com.taobao.dubbo.config"</span> <span class="attr">additivity</span>=<span class="string">"false"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>【强制】</strong>异常信息应该包括两类信息：<code>案发现场信息</code>和<code>异常堆栈信息</code>。如果不处理，那么通过关键字<code>throws</code>往上抛出。<br> 正例：<code>logger.error(各类参数或者对象toString() + &quot;_&quot; + e.getMessage(), e);</code></p>
+</li>
+<li><p><strong>【推荐】</strong>谨慎地记录日志。生产环境禁止输出<code>debug</code>日志；有选择地输出<code>info</code>日志；如果使用<code>warn</code>来记录刚上线时的业务行为信息，一定要注意日志输出量的问题，避免把服务器磁盘撑爆，并记得及时删除这些观察日志。</p>
+<blockquote>
+<p>说明：大量地输出无效日志，不利于系统性能提升，也不利于快速定位错误点。记录日志时请思考：这些日志真的有人看吗？看到这条日志你能做什么？能不能给问题排查带来好处？</p>
+</blockquote>
+</li>
+<li><p><strong>【推荐】</strong>可以使用<code>warn</code>日志级别来记录用户输入参数错误的情况，避免用户投诉时，无所适从。如非必要，请不要在此场景打出<code>error</code>级别，避免频繁报警。</p>
+<blockquote>
+<p>说明：注意日志输出的级别，error级别只记录系统逻辑出错、异常或者重要的错误信息。</p>
+</blockquote>
+</li>
+<li><p><strong>【推荐】</strong>尽量用英文来描述日志错误信息，如果日志中的错误信息用英文描述不清楚的话使用中文描述即可，否则容易产生歧义。国际化团队或海外部署的服务器由于字符集问题，<strong>【强制】</strong>使用全英文来注释和描述日志错误信息。</p>
+</li>
+</ol>
+<h2 id="三、单元测试"><a href="#三、单元测试" class="headerlink" title="三、单元测试"></a>三、单元测试</h2><ol>
+<li><p><strong>【强制】</strong>好的单元测试必须遵守<code>AIR</code>原则。</p>
+<blockquote>
+<p>说明：单元测试在线上运行时，感觉像空气（AIR）一样并不存在，但在测试质量的保障上，却是非常关键的。好的单元测试宏观上来说，具有自动化、独立性、可重复执行的特点。</p>
+<ul>
+<li>A：Automatic（自动化）</li>
+<li>I：Independent（独立性）</li>
+<li>R：Repeatable（可重复）</li>
+</ul>
+</blockquote>
+</li>
+<li><strong>【强制】</strong>单元测试应该是全自动执行的，并且非交互式的。测试用例通常是被定期执行的，执行过程必须完全自动化才有意义。输出结果需要人工检查的测试不是一个好的单元测试。单元测试中不准使用<code>System.out</code>来进行人肉验证，必须使用<code>assert</code>来验证。</li>
+<li><strong>【强制】</strong>保持单元测试的<code>独立性</code>。为了保证单元测试稳定可靠且便于维护，<code>单元测试用例之间决不能互相调用，也不能依赖执行的先后次序</code>。<br> 反例：method2需要依赖method1的执行，将执行结果作为method2的输入。</li>
+<li><strong>【强制】</strong>单元测试是可以重复执行的，不能受到外界环境的影响。<br> 说明：单元测试通常会被放到持续集成中，每次有代码<code>check in</code>时单元测试都会被执行。如果单测对外部环境（网络、服务、中间件等）有依赖，容易导致持续集成机制的不可用。<br> 正例：为了不受外界环境影响，要求设计代码时就把<code>SUT</code>的依赖改成注入，在测试时用<code>spring</code>这样的DI框架注入一个本地（内存）实现或者<code>Mock</code>实现。</li>
+<li><strong>【强制】</strong>对于单元测试，要保证测试粒度足够小，有助于精确定位问题。单测粒度至多是类级别，一般是方法级别。<blockquote>
+<p>说明：只有测试粒度小才能在出错时尽快定位到出错位置。单测不负责检查跨类或者跨系统的交互逻辑，那是集成测试的领域。</p>
+</blockquote>
+</li>
+<li><strong>【强制】</strong>核心业务、核心应用、核心模块的增量代码确保单元测试通过。<blockquote>
+<p>说明：新增代码及时补充单元测试，如果新增代码影响了原有单元测试，请及时修正。</p>
+</blockquote>
+</li>
+<li><strong>【强制】</strong>单元测试代码必须写在如下工程目录：<code>src/test/java</code>，不允许写在业务代码目录下。<blockquote>
+<p>说明：源码构建时会跳过此目录，而单元测试框架默认是扫描此目录。</p>
+</blockquote>
+</li>
+<li><strong>【推荐】</strong>单元测试的基本目标：语句覆盖率达到<code>70%</code>；核心模块的语句覆盖率和分支覆盖率都要达到<code>100%</code><blockquote>
+<p>说明：在工程规约的应用分层中提到的<code>DAO</code>层，<code>Manager</code>层，可重用度高的<code>Service</code>，都应该进行单元测试。</p>
+</blockquote>
+</li>
+<li><p><strong>【推荐】</strong>编写单元测试代码遵守<code>BCDE</code>原则，以保证被测试模块的交付质量。</p>
+<ul>
+<li>B：<code>Border</code>，边界值测试，包括循环边界、特殊取值、特殊时间点、数据顺序等。</li>
+<li>C：<code>Correct</code>，正确的输入，并得到预期的结果。</li>
+<li>D：<code>Design</code>，与设计文档相结合，来编写单元测试。</li>
+<li>E：<code>Error</code>，强制错误信息输入（如：非法数据、异常流程、非业务允许输入等），并得到预期的结果。</li>
+</ul>
+</li>
+<li><p><strong>【推荐】</strong>对于数据库相关的查询，更新，删除等操作，不能假设数据库里的数据是存在的，或者直接操作数据库把数据插入进去，请使用程序插入或者导入数据的方式来准备数据。<br>反例：删除某一行数据的单元测试，在数据库中，先直接手动增加一行作为删除目标，但是这一行新增数据并不符合业务插入规则，导致测试结果异常。</p>
+</li>
+<li><strong>【推荐】</strong>和数据库相关的单元测试，可以设定<code>自动回滚机制</code>，不给数据库造成<code>脏数据</code>。或者对单元测试产生的数据有明确的前后缀标识。<blockquote>
+<p>正例：在<code>RDC</code>内部单元测试中，使用<code>RDC_UNIT_TEST_</code>的前缀标识数据。</p>
+</blockquote>
+</li>
+<li><strong>【推荐】</strong>对于不可测的代码建议做必要的重构，使代码变得可测，避免为了达到测试要求而书写不规范测试代码。</li>
+<li><strong>【推荐】</strong>在设计评审阶段，<code>开发人员</code>需要和<code>测试人员</code>一起<code>确定单元测试范围</code>，单元测试最好覆盖所有测试用例。</li>
+<li><strong>【推荐】</strong>单元测试作为一种质量保障手段，不建议项目发布后补充单元测试用例，建议在项目提测前完成单元测试。</li>
+<li>【参考】为了更方便地进行单元测试，业务代码应避免以下情况：<ul>
+<li>构造方法中做的事情过多。</li>
+<li>存在过多的全局变量和静态方法。</li>
+<li>存在过多的外部依赖。</li>
+<li>存在过多的条件语句。<br>说明：多层条件语句建议使用卫语句、策略模式、状态模式等方式重构。</li>
+</ul>
+</li>
+<li>【参考】不要对单元测试存在如下误解：<ul>
+<li>那是测试同学干的事情。本文是开发手册，凡是本文内容都是与开发同学强相关的。</li>
+<li>单元测试代码是多余的。系统的整体功能与各单元部件的测试正常与否是强相关的。</li>
+<li>单元测试代码不需要维护。一年半载后，那么单元测试几乎处于废弃状态。</li>
+<li>单元测试与线上故障没有辩证关系。好的单元测试能够最大限度地规避线上故障。</li>
+</ul>
+</li>
+</ol>
+<h2 id="四、安全规约"><a href="#四、安全规约" class="headerlink" title="四、安全规约"></a>四、安全规约</h2><ol>
+<li><p><strong>【强制】</strong>隶属于用户个人的页面或者功能必须进行权限控制校验。</p>
+<blockquote>
+<p>说明：防止没有做水平权限校验就可随意访问、修改、删除别人的数据，比如查看他人的私信内容、修改他人的订单。</p>
+</blockquote>
+</li>
+<li><p><strong>【强制】</strong>用户敏感数据禁止直接展示，必须对展示数据进行脱敏。</p>
+<blockquote>
+<p>说明：中国大陆个人手机号码显示为:158<em>**</em>9119，隐藏中间 4 位，防止隐私泄露。</p>
+</blockquote>
+</li>
+<li><strong>【强制】</strong>用户输入的<code>SQL</code>参数严格使用参数绑定或者<code>METADATA</code>字段值限定，防止<code>SQL注入</code>，禁止<code>字符串拼接SQL</code>访问数据库。</li>
+<li><strong>【强制】</strong>用户请求传入的任何参数必须做有效性验证。<blockquote>
+<p>说明：忽略参数校验可能导致：</p>
+<ul>
+<li>page size过大导致内存溢出</li>
+<li>恶意<code>order by</code>导致数据库慢查询</li>
+<li>任意重定向</li>
+<li><code>SQL注入</code></li>
+<li>反序列化注入</li>
+<li>正则输入源串拒绝服务<code>ReDoS</code><br>说明：<code>Java</code>代码用正则来验证客户端的输入，有些正则写法验证普通用户输入没有问题，但是如果攻击人员使用的是特殊构造的字符串来验证，有可能导致死循环的结果。</li>
+</ul>
+</blockquote>
+</li>
+<li><strong>【强制】</strong>禁止向<code>HTML</code>页面输出未经安全过滤或未正确转义的用户数据。</li>
+<li><strong>【强制】</strong>表单、<code>AJAX</code>提交必须执行<code>CSRF</code>安全验证。<blockquote>
+<p>说明：<code>CSRF(Cross-site request forgery)</code>跨站请求伪造是一类常见编程漏洞。对于存在<code>CSRF</code>漏洞的应用/网站，攻击者可以事先构造好<code>URL</code>，只要受害者用户一访问，后台便在用户不知情的情况下对数据库中用户参数进行相应修改。</p>
+</blockquote>
+</li>
+<li><strong>【强制】</strong>在使用平台资源，譬如短信、邮件、电话、下单、支付，必须实现正确的防重放的机制，如数量限制、疲劳度控制、验证码校验，避免被滥刷而导致资损。<blockquote>
+<p>说明：如注册时发送验证码到手机，如果没有限制次数和频率，那么可以利用此功能骚扰到其它用户，并造成短信平台资源浪费。</p>
+</blockquote>
+</li>
+<li><strong>【推荐】</strong>发贴、评论、发送即时消息等用户生成内容的场景必须实现防刷、文本内容违禁词过滤等风控策略。</li>
+</ol>
+<h2 id="五、MySQL数据库"><a href="#五、MySQL数据库" class="headerlink" title="五、MySQL数据库"></a>五、MySQL数据库</h2><h3 id="一-建表规约"><a href="#一-建表规约" class="headerlink" title="(一) 建表规约"></a>(一) 建表规约</h3><ol>
+<li><p><strong>【强制】</strong>表达是与否概念的字段，必须使用<code>is_xxx</code>的方式命名，数据类型是<code>unsigned tinyint（ 1 表示是， 0 表示否）</code>。</p>
+<blockquote>
+<p>说明：任何字段如果为非负数，必须是unsigned。</p>
+</blockquote>
+<p> 注意：<code>POJO</code>类中的任何布尔类型的变量，都不要加<code>is</code>前缀，所以，需要在<code>&lt;resultMap&gt;</code>设置从<code>is_xxx</code>到<code>Xxx</code>的映射关系。数据库表示是与否的值，使用<code>tinyint</code>类型，坚持<code>is_xxx</code>的命名方式是为了明确其取值含义与取值范围。<br> 正例：表达逻辑删除的字段名<code>is_deleted</code>， 1 表示删除， 0 表示未删除。</p>
+</li>
+<li><p><strong>【强制】</strong>表名、字段名必须使用<code>小写字母</code>或<code>数字</code>，<code>禁止出现数字开头</code>，<code>禁止两个下划线中间只出现数字</code>。数据库字段名的修改代价很大，因为无法进行预发布，所以字段名称需要慎重考虑。</p>
+<blockquote>
+<p>说明：<code>MySQL</code>在<code>Windows下不区分大小写</code>，但在<code>Linux下默认是区分大小写</code>。因此，数据库名、表名、字段名，都<code>不允许出现任何大写字母</code>，避免节外生枝。</p>
+</blockquote>
+<p> 正例：<code>aliyun_admin</code>，<code>rdc_config</code>，<code>level3_name</code><br> 反例：<code>AliyunAdmin</code>，<code>rdcConfig</code>，<code>level_3_name</code></p>
+</li>
+<li><strong>【强制】</strong>表名不使用复数名词。<blockquote>
+<p>说明：表名应该仅仅表示表里面的实体内容，不应该表示实体数量，对应于DO类名也是单数形式，符合表达习惯。</p>
+</blockquote>
+</li>
+<li><strong>【强制】</strong>禁用保留字，如<code>desc</code>、<code>range</code>、<code>match</code>、<code>delayed</code>等，请参考MySQL官方保留字。</li>
+<li><strong>【强制】</strong>主键索引名为<code>pk_</code>字段名；唯一索引名为<code>uk_</code>字段名；普通索引名则为<code>idx_</code>字段名。<blockquote>
+<p>说明：<code>pk_</code> 即<code>primary key</code>；<code>uk_</code> 即 <code>unique key</code>；<code>idx_</code> 即<code>index</code>的简称。</p>
+</blockquote>
+</li>
+<li><strong>【强制】</strong>小数类型为<code>decimal</code>，禁止使用<code>float</code>和<code>double</code>。<blockquote>
+<p>说明：<code>float</code>和<code>double</code>在存储的时候，存在精度损失的问题，很可能在值的比较时，得到不正确的结果。如果存储的数据范围超过<code>decimal</code>的范围，建议将数据拆成整数和小数分开存储。</p>
+</blockquote>
+</li>
+<li><strong>【强制】</strong>如果存储的字符串长度几乎相等，使用<code>char</code>定长字符串类型。</li>
+<li><strong>【强制】</strong><code>varchar</code>是可变长字符串，不预先分配存储空间，长度不要超过 <code>5000</code> ，如果存储长度大于此值，定义字段类型为<code>text</code>，独立出来一张表，用主键来对应，避免影响其它字段索引效率。</li>
+<li><strong>【强制】</strong>表必备三字段：<code>id</code>, <code>gmt_create</code>, <code>gmt_modified</code>。<blockquote>
+<p>说明：其中<code>id</code>必为主键，类型为<code>bigint</code> <code>unsigned</code>、<code>单表时自增</code>、步长为 <code>1</code> 。<code>gmt_create</code>,<code>gmt_modifie</code>d的类型均为<code>datetime</code>类型，前者现在时表示主动创建，后者过去分词表示被动更新。</p>
+</blockquote>
+</li>
+<li><strong>【推荐】</strong>表的命名最好是加上”业务名称_表的作用”。<br>正例：<code>alipay_task</code> / <code>force_project</code> / <code>trade_config</code></li>
+<li><strong>【推荐】</strong>库名与应用名称尽量一致。</li>
+<li><strong>【推荐】</strong>如果修改字段含义或对字段表示的状态追加时，需要及时更新字段注释。</li>
+<li><strong>【推荐】</strong>字段允许适当冗余，以提高查询性能，但必须考虑数据一致。冗余字段应遵循：<br>1 ）不是频繁修改的字段。<br>2 ）不是<code>varchar</code>超长字段，更不能是<code>text</code>字段。<br>正例：商品类目名称使用频率高，字段长度短，名称基本一成不变，可在相关联的表中冗余存储类目名称，避免关联查询。</li>
+<li><strong>【推荐】</strong>单表行数超过 <code>500</code> 万行或者单表容量超过 <code>2</code> GB，才推荐进行分库分表。<blockquote>
+<p>说明：如果预计三年后的数据量根本达不到这个级别，请不要在创建表时就分库分表。</p>
+</blockquote>
+</li>
+<li>【参考】合适的字符存储长度，不但节约数据库表空间、节约索引存储，更重要的是提升检索速度。<br>正例：如下表，其中无符号值可以避免误存负数，且扩大了表示范围。</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>对象</th>
+<th>年龄区间</th>
+<th>类型</th>
+<th>字节</th>
+<th>表示范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>人</td>
+<td>150岁之内</td>
+<td><code>tinyint unsigned</code></td>
+<td>1</td>
+<td>无符号值： 0 到 255</td>
+</tr>
+<tr>
+<td>龟</td>
+<td>数百岁</td>
+<td><code>smallint unsigned</code></td>
+<td>2</td>
+<td>无符号值： 0 到 65535</td>
+</tr>
+<tr>
+<td>恐龙化石</td>
+<td>数千万年</td>
+<td><code>int unsigned</code></td>
+<td>4</td>
+<td>无符号值： 0 到约42.9亿</td>
+</tr>
+<tr>
+<td>太阳</td>
+<td>约 50 亿年</td>
+<td><code>bigint unsigned</code></td>
+<td>8</td>
+<td>无符号值： 0 到约 10 的 19 次方</td>
+</tr>
+</tbody>
+</table>
+<h3 id="二-索引规约"><a href="#二-索引规约" class="headerlink" title="(二) 索引规约"></a>(二) 索引规约</h3><ol>
+<li><p><strong>【强制】</strong>业务上具有唯一特性的字段，即使是多个字段的组合，也必须建成唯一索引。</p>
+<blockquote>
+<p>说明：不要以为唯一索引影响了insert速度，这个速度损耗可以忽略，但提高查找速度是明显的；另外，即使在应用层做了非常完善的校验控制，只要没有唯一索引，根据墨菲定律，必然有脏数据产生。</p>
+</blockquote>
+</li>
+<li><p><strong>【强制】</strong>超过<code>三个表</code>禁止join。需要join的字段，<code>数据类型必须绝对一致</code>；多表关联查询时，保证<code>被关联的字段需要有索引</code>。</p>
+<blockquote>
+<p>说明：即使双表join也要注意表索引、SQL性能。</p>
+</blockquote>
+</li>
+<li><p><strong>【强制】</strong>在<code>varchar</code>字段上建立索引时，必须<code>指定索引长度</code>，没必要对全字段建立索引，根据实际文本区分度决定索引长度即可。</p>
+<blockquote>
+<p>说明：索引的长度与区分度是一对矛盾体，一般对字符串类型数据，长度为 <code>20</code> 的索引，区分度会高达<code>90%</code>以上，可以使用<code>count(distinct left(列名, 索引长度))/count(*)</code>的区分度来确定。</p>
+</blockquote>
+</li>
+<li><p><strong>【强制】</strong>页面搜索严禁左模糊或者全模糊，如果需要请走搜索引擎来解决。</p>
+<blockquote>
+<p>说明：索引文件具有<code>B-Tree</code>的最左前缀匹配特性，如果左边的值未确定，那么无法使用此索引。</p>
+</blockquote>
+</li>
+<li><strong>【推荐】</strong>如果有<code>order by</code>的场景，请注意利用<code>索引的有序性</code>。<code>order by</code> 最后的字段是组合索引的一部分，并且放在索引组合顺序的最后，避免出现<code>file_sort</code>的情况，影响查询性能。<br> 正例：<code>where a=? and b=? order by c;</code> 索引：a_b_c<br> 反例：索引中有范围查找，那么索引有序性无法利用，如：<code>WHERE a&gt;10 ORDER BY b;</code> 索引a_b无法排序。</li>
+<li><p><strong>【推荐】</strong>利用覆盖索引来进行查询操作，避免回表。</p>
+<blockquote>
+<p>说明：如果一本书需要知道第 11 章是什么标题，会翻开第 11 章对应的那一页吗？目录浏览一下就好，这个目录就是起到覆盖索引的作用。</p>
+</blockquote>
+<p> 正例：能够建立索引的种类分为<code>主键索引</code>、<code>唯一索引</code>、<code>普通索引</code>三种，而<code>覆盖索引</code>只是一种查询的一种效果，用<code>explain</code>的结果，<code>extra</code>列会出现：<code>using index</code>。</p>
+</li>
+<li><p><strong>【推荐】</strong>利用<code>延迟关联</code>或者<code>子查询</code>优化超多分页场景。</p>
+<blockquote>
+<p>说明：<code>MySQL</code>并不是跳过<code>offset</code>行，而是取<code>offset+N</code>行，然后返回放弃前<code>offset</code>行，返回<code>N</code>行，那当<code>offset</code>特别大的时候，效率就非常的低下，要么控制返回的总页数，要么对超过特定阈值的页数进行<code>SQL</code>改写。</p>
+</blockquote>
+<p> 正例：先快速定位需要获取的id段，然后再关联：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> a.* <span class="keyword">FROM</span> 表<span class="number">1</span> a, (<span class="keyword">select</span> <span class="keyword">id</span> <span class="keyword">from</span> 表<span class="number">1</span> <span class="keyword">where</span> 条件 <span class="keyword">LIMIT</span> <span class="number">100000</span>,<span class="number">20</span> ) b <span class="keyword">where</span> a.id=b.id</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>【推荐】</strong> SQL性能优化的目标：至少要达到 <code>range</code> 级别，要求是<code>ref</code>级别，如果可以是<code>consts</code>最好。</p>
+<blockquote>
+<p>说明：<br> 1 ）<code>consts</code> 单表中最多只有一个匹配行（主键或者唯一索引），在优化阶段即可读取到数据。<br> 2 ）<code>ref</code> 指的是使用普通的索引（<code>normal index</code>）。<br> 3 ）<code>range</code> 对索引进行范围检索。</p>
+</blockquote>
+<p> 反例：<code>explain</code>表的结果，<code>type=index</code>，索引物理文件全扫描，速度非常慢，这个<code>index</code>级别比较<code>range</code>还低，与全表扫描是小巫见大巫。</p>
+</li>
+<li><strong>【推荐】</strong>建组合索引的时候，区分度最高的在最左边。<br> 正例：如果<code>where a=? and b=?</code> ，如果a列的几乎接近于唯一值，那么只需要单建idx_a索引即可。<blockquote>
+<p>说明：存在非等号和等号混合时，在建索引时，请把等号条件的列前置。如：<code>where c&gt;? and d=?</code> 那么即使c的区分度更高，也必须把d放在索引的最前列，即索引<code>idx_d_c</code>。</p>
+</blockquote>
+</li>
+<li><strong>【推荐】</strong>防止因字段类型不同造成的隐式转换，导致索引失效。</li>
+<li>【参考】创建索引时避免有如下极端误解：<br>1 ）宁滥勿缺。认为一个查询就需要建一个索引。<br>2 ）宁缺勿滥。认为索引会消耗空间、严重拖慢更新和新增速度。<br>3 ）抵制惟一索引。认为业务的惟一性一律需要在应用层通过”先查后插”方式解决。</li>
+</ol>
+<h3 id="三-SQL语句"><a href="#三-SQL语句" class="headerlink" title="(三) SQL语句"></a>(三) SQL语句</h3><ol>
+<li><strong>【强制】</strong>不要使用<code>count(列名)</code>或<code>count(常量)</code>来替代<code>count(*)</code>，<code>count(*)</code>是<code>SQL 92</code> 定义的标准统计行数的语法，跟数据库无关，跟<code>NULL</code>和<code>非NULL</code>无关。<blockquote>
+<p>说明：<code>count(*)</code>会统计值<code>为NULL的行</code>，而<code>count(列名)</code>不会统计此列<code>为NULL值的行</code>。</p>
+</blockquote>
+</li>
+<li><strong>【强制】</strong><code>count(distinct col)</code> 计算该列<code>除NULL</code>之外的不重复行数，注意 <code>count(distinct col1, col 2 )</code> 如果其中<code>一列全为NULL</code>，那么即使另一列有不同的值，也返回为 <code>0</code> 。</li>
+<li><strong>【强制】</strong>当某一列的值全是<code>NULL</code>时，<code>count(col)</code>的返回结果为 0 ，但<code>sum(col)</code>的返回结果为<code>NULL</code>，因此使用<code>sum()</code>时需注意NPE问题。<br> 正例：可以使用如下方式来避免<code>sum</code>的<code>NPE</code>问题：<code>SELECT IF(ISNULL(SUM(g)),0,SUM(g)) FROM table;</code></li>
+<li><strong>【强制】</strong>使用<code>ISNULL()</code>来判断是否为<code>NULL</code>值。<blockquote>
+<p>说明：NULL与任何值的直接比较都为<code>NULL</code>。<br> 1 ） <code>NULL&lt;&gt;NULL</code>的返回结果是<code>NULL</code>，而不是<code>false</code>。<br> 2 ） <code>NULL=NULL</code>的返回结果是<code>NULL</code>，而不是<code>true</code>。<br> 3 ） <code>NULL&lt;&gt;1</code>的返回结果是<code>NULL</code>，而不是<code>true</code>。</p>
+</blockquote>
+</li>
+<li><strong>【强制】</strong> 在代码中写分页查询逻辑时，若<code>count</code>为 <code>0</code> 应直接返回，避免执行后面的分页语句。</li>
+<li><strong>【强制】</strong>不得使用外键与级联，<code>一切外键概念</code>必须在<code>应用层</code>解决。<blockquote>
+<p>说明：以学生和成绩的关系为例，学生表中的<code>student_id</code>是主键，那么成绩表中的<code>student_id</code>则为外键。如果更新学生表中的<code>student_id</code>，同时触发成绩表中的<code>student_id</code>更新，即为<code>级联更新</code>。外键与级联更新适用于单机低并发，不适合分布式、高并发集群；级联更新是强阻塞，存在数据库更新风暴的风险；外键影响数据库的插入速度。</p>
+</blockquote>
+</li>
+<li><strong>【强制】</strong><code>禁止使用存储过程</code>，存储过程难以调试和扩展，更没有移植性。</li>
+<li><strong>【强制】</strong>数据订正（特别是删除、修改记录操作）时，要先<code>select</code>，避免出现误删除，确认无误才能执行更新语句。</li>
+<li><strong>【推荐】</strong><code>in</code>操作能避免则避免，若实在避免不了，需要仔细评估<code>in</code>后边的集合元素数量，控制在 <code>1000</code> 个之内。</li>
+</ol>
+<ol start="10">
+<li>【参考】如果有国际化需要，所有的字符存储与表示，均以<code>utf-8</code> 编码，注意字符统计函数的区别。<blockquote>
+<p>说明：</p>
+<pre><code>SELECT LENGTH(&quot;轻松工作&quot;)； 返回为 12
+SELECT CHARACTER_LENGTH(&quot;轻松工作&quot;)； 返回为 4
+</code></pre><p>如果需要存储表情，那么选择<code>utf8mb4</code>来进行存储，注意它与<code>utf-8</code>编码的区别。</p>
+</blockquote>
+</li>
+<li>【参考】<code>TRUNCATE TABLE</code> 比 <code>DELETE</code> 速度快，且使用的系统和事务日志资源少，但<code>TRUNCATE</code>无事务且不触发<code>trigger</code>，有可能造成事故，故不建议在开发代码中使用此语句。<blockquote>
+<p>说明：<code>TRUNCATE TABLE</code> 在功能上与不带 <code>WHERE</code> 子句的 <code>DELETE</code> 语句相同。</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="四-ORM映射"><a href="#四-ORM映射" class="headerlink" title="(四) ORM映射"></a>(四) ORM映射</h3><ol>
+<li><p><strong>【强制】</strong>在表查询中，一律不要使用 <code>*</code> 作为查询的字段列表，需要哪些字段必须明确写明。</p>
+<blockquote>
+<p>说明：<br> 1 ）增加查询分析器解析成本。<br> 2 ）增减字段容易与<code>resultMap</code>配置不一致。<br> 3 ）无用字段增加网络消耗，尤其是<code>text</code>类型的字段。</p>
+</blockquote>
+</li>
+<li><strong>【强制】</strong><code>POJO</code>类的布尔属性不能加<code>is</code>，而数据库字段必须加<code>is_</code>，要求在<code>resultMap</code>中进行字段与属性之间的映射。<blockquote>
+<p>说明：参见定义<code>POJO</code>类以及数据库字段定义规定，在<code>&lt;resultMap&gt;</code>中增加映射，是必须的。在<code>MyBatis Generator</code>生成的代码中，需要进行对应的修改。</p>
+</blockquote>
+</li>
+<li><strong>【强制】</strong>不要用<code>resultClass</code>当返回参数，即使所有类属性名与数据库字段一一对应，也需要定义；反过来，每一个表也必然有一个<code>POJO</code>类与之对应。<blockquote>
+<p>说明：配置映射关系，使字段与<code>DO</code>类解耦，方便维护。</p>
+</blockquote>
+</li>
+<li><strong>【强制】</strong><code>sql.xml</code>配置参数使用：<code>#{}</code>，<code>#param#</code> 不要使用<code>${}</code> 此种方式容易出现<code>SQL注入</code>。</li>
+<li><p><strong>【强制】</strong><code>iBATIS</code>自带的<code>queryForList(String statementName,int start,int size)</code>不推荐使用。</p>
+<blockquote>
+<p>说明：其实现方式是在数据库取到<code>statementName</code>对应的<code>SQL</code>语句的所有记录，再通过<code>subList</code>取<code>start</code>,<code>size</code>的子集合。</p>
+</blockquote>
+<p> 正例：</p>
+<pre><code class="java">Map&lt;String, Object&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();
+map.put(<span class="string">"start"</span>, start);
+map.put(<span class="string">"size"</span>, size);
+</code></pre>
+</li>
+<li><strong>【强制】</strong>不允许直接拿<code>HashMap</code>与<code>Hashtable</code>作为查询结果集的输出。<blockquote>
+<p>说明：<code>resultClass=&quot;Hashtable&quot;</code>，会置入字段名和属性值，但是值的类型不可控。</p>
+</blockquote>
+</li>
+<li><p><strong>【强制】</strong>更新数据表记录时，必须同时更新记录对应<code>的gmt_modified</code>字段值为当前时间段，都进行<code>update table set c1=value1,c2=value2,c3=value3;</code> 这是不对的。执行<code>SQL</code>时，不要更新无改动的字段，一是<code>易出错</code>；二是<code>效率低</code>；三是增加<code>binlog</code>存储。</p>
+</li>
+<li><p>【参考】<code>@Transactional</code>事务不要滥用。事务会影响数据库的<code>QPS</code>，另外使用事务的地方需要考虑各方面的回滚方案，包括<code>缓存回滚</code>、<code>搜索引擎回滚</code>、<code>消息补偿</code>、<code>统计修正</code>等。</p>
+</li>
+<li>【参考】<code>&lt;isEqual&gt;</code>中的<code>compareValue</code>是与属性值对比的常量，一般是<code>数字</code>，表示相等时带上此条件；<code>&lt;isNotEmpty&gt;</code>表示<code>不为空且不为null</code>时执行；<code>&lt;isNotNull&gt;</code>表示<code>不为null值</code>时执行。</li>
+</ol>
+<h2 id="六、工程结构"><a href="#六、工程结构" class="headerlink" title="六、工程结构"></a>六、工程结构</h2><h3 id="一-应用分层"><a href="#一-应用分层" class="headerlink" title="(一) 应用分层"></a>(一) 应用分层</h3><p><center><img src="/2018/10/08/Java开发规范/1539094731060.jpg" alt=""></center></p>
+<ol>
+<li><strong>【推荐】</strong>图中默认上层依赖于下层，箭头关系表示可直接依赖，如：<code>开放接口</code>层可以依赖于<code>Web</code>层，也可以直接依赖于<code>Service</code>层，依此类推：</li>
+</ol>
+<ul>
+<li>开放接口层：可直接封装<code>Service</code>方法暴露成<code>RPC</code>接口；通过<code>Web</code>封装成<code>http</code>接口；进行网关安全控制、流量控制等。</li>
+<li>终端显示层：各个端的模板渲染并执行显示的层。当前主要是<code>velocity</code>渲染，<code>JS</code>渲染，<code>JSP</code>渲染，移动端展示等。</li>
+<li>Web层：主要是对访问控制进行转发，各类基本参数校验，或者不复用的业务简单处理等。</li>
+<li>Service层：相对具体的业务逻辑服务层。</li>
+<li>Manager层：通用业务处理层，它有如下特征：<br>  1 ） 对第三方平台封装的层，预处理返回结果及转化异常信息；<br>  2 ） 对<code>Service</code>层通用能力的下沉，如缓存方案、中间件通用处理；<br>  3 ） 与<code>DAO</code>层交互，对多个<code>DAO</code>的组合复用。</li>
+<li>DAO层：数据访问层，与底层<code>MySQL</code>、<code>Oracle</code>、<code>Hbase</code>等进行数据交互。</li>
+<li>外部接口或第三方平台：包括其它部门<code>RPC</code>开放接口，基础平台，其它公司的<code>HTTP</code>接口。</li>
+</ul>
+<ol start="2">
+<li><p>【参考】（分层异常处理规约）在<code>DAO</code>层，产生的异常类型有很多，无法用细粒度的异常进行<code>catch</code>，使用c<code>atch(Exception e)</code>方式，并<code>throw new DAOException(e)</code>，不需要打印日志，因为日志在<code>Manager</code>/<code>Service</code>层一定需要捕获并打印到日志文件中去，如果同台服务器再打日志，浪费性能和存储。在<code>Service</code>层出现异常时，必须记录出错日志到磁盘，尽可能带上参数信息，相当于保护<code>案发现场</code>。如果<code>Manager</code>层与<code>Service</code>同机部署，日志方式与<code>DAO</code>层处理一致，如果是单独部署，则采用与<code>Service</code>一致的处理方式。<code>Web</code>层绝不应该继续往上抛异常，因为已经处于顶层，如果意识到这个异常将导致页面无法正常渲染，那么就应该直接跳转到友好错误页面，加上用户容易理解的错误提示信息。开放接口层要将异常处理成错误码和错误信息方式返回。</p>
+</li>
+<li><p>【参考】分层领域模型规约：</p>
+</li>
+</ol>
+<ul>
+<li><code>DO（Data Object）</code>：此对象与数据库表结构一一对应，通过<code>DAO</code>层向上传输数据源对象。</li>
+<li><code>DTO（Data Transfer Object）</code>：数据传输对象，<code>Service</code>或<code>Manager</code>向外传输的对象。</li>
+<li><code>BO（Business Object</code>）：业务对象，由<code>Service</code>层输出的封装业务逻辑的对象。</li>
+<li><code>AO（Application Object）</code>：应用对象，在<code>Web</code>层与<code>Service</code>层之间抽象的复用对象模型，极为贴近展示层，复用度不高。</li>
+<li><code>VO（View Object）</code>：显示层对象，通常是<code>Web</code>向模板渲染引擎层传输的对象。</li>
+<li>Query：数据查询对象，各层接收上层的查询请求。注意超过 <code>2</code> 个参数的查询封装，禁止使用<code>Map</code>类来传输。</li>
+</ul>
+<h3 id="二-二方库依赖"><a href="#二-二方库依赖" class="headerlink" title="(二) 二方库依赖"></a>(二) 二方库依赖</h3><ol>
+<li><p><strong>【强制】</strong>定义GAV遵从以下规则：<br> 1 ） GroupID格式：com.{公司/BU }.业务线 [.子业务线]，最多 4 级。</p>
+<blockquote>
+<p>说明：{公司/BU} 例如：<code>alibaba</code>/<code>taobao</code>/<code>tmall</code>/<code>aliexpress</code>等<code>BU</code>一级；子业务线可选。</p>
+</blockquote>
+<p> 正例：<code>com.taobao.jstorm</code> 或 <code>com.alibaba.dubbo.register</code><br> 2 ） <code>ArtifactID</code>格式：产品线名-模块名。语义不重复不遗漏，先到中央仓库去查证一下。<br> 正例：<code>dubbo-client</code> / <code>fastjson-api</code> / <code>jstorm-tool</code>    3 ） <code>Version</code>：详细规定参考下方。</p>
+</li>
+<li><p><strong>【强制】</strong>二方库版本号命名方式：<code>主版本号</code>.<code>次版本号</code>.<code>修订号</code><br> 1 ） 主版本号：产品方向改变，或者大规模<code>API</code>不兼容，或者架构不兼容升级。<br>  2 ） 次版本号：保持相对兼容性，增加主要功能特性，影响范围极小的<code>API</code>不兼容修改。<br> 3 ） 修订号：保持完全兼容性，修复<code>BUG</code>、新增次要功能特性等。</p>
+<blockquote>
+<p>说明：注意起始版本号必须为：<code>1.0.0</code>，而不是<code>0.0.1</code> 正式发布的类库必须先去中央仓库进行查证，使版本号有延续性，正式版本号不允许覆盖升级。如当前版本：<code>1.3.3</code>，那么下一个合理的版本号：<code>1.3.4</code> 或 <code>1.4.0</code> 或 <code>2.0.0</code></p>
+</blockquote>
+</li>
+<li><strong>【强制】</strong>线上应用不要依赖<code>SNAPSHOT</code>版本（安全包除外）。<blockquote>
+<p>说明：不依赖<code>SNAPSHOT</code>版本是保证应用发布的幂等性。另外，也可以加快编译时的打包构建。</p>
+</blockquote>
+</li>
+<li><strong>【强制】</strong>二方库的新增或升级，保持除功能点之外的其它<code>jar</code>包仲裁结果不变。如果有改变，必须明确评估和验证，建议进行<code>dependency:resolve</code>前后信息比对，如果仲裁结果完全不一致，那么通过<code>dependency:tree</code>命令，找出差异点，进行<code>&lt;excludes&gt;</code>排除<code>jar</code>包。</li>
+<li><p><strong>【强制】</strong>二方库里可以定义<code>枚举类型</code>，参数可以使用<code>枚举类型</code>，但是接口返回值不允许使用<code>枚举类型</code>或者包含<code>枚举类型</code>的<code>POJO</code>对象。</p>
+</li>
+<li><p><strong>【强制】</strong>依赖于一个二方库群时，必须定义一个统一的版本变量，避免版本号不一致。</p>
+<blockquote>
+<p>说明：依赖<code>springframework-core,-context,-beans</code>，它们都是同一个版本，可以定义一个变量来保存版本：<code>${spring.version}</code>，定义依赖的时候，引用该版本。</p>
+</blockquote>
+</li>
+<li><strong>【强制】</strong>禁止在子项目的<code>pom</code>依赖中出现相同的<code>GroupId</code>，相同的<code>ArtifactId</code>，但是不同的<code>Version</code>。<blockquote>
+<p>说明：在本地调试时会使用各子项目指定的版本号，但是合并成一个<code>war</code>，只能有一个版本号出现在最后的<code>lib</code>目录中。可能出现<code>线下调试是正确的</code>，发布到<code>线上却出故障</code>的问题。</p>
+</blockquote>
+</li>
+<li><strong>【推荐】</strong>所有<code>pom</code>文件中的依赖声明放在<code>&lt;dependencies&gt;</code>语句块中，所有版本仲裁放在<code>&lt;dependencyManagement&gt;</code>语句块中。<blockquote>
+<p>说明：<code>&lt;dependencyManagement&gt;</code>里只是声明版本，并不实现引入，因此子项目需要显式的声明依赖，<code>version</code>和<code>scope</code>都读取自父<code>pom</code>。而<code>&lt;dependencies&gt;</code>所有声明在主<code>pom</code>的<code>&lt;dependencies&gt;</code>里的依赖都会自动引入，并默认被所有的子项目继承。</p>
+</blockquote>
+</li>
+<li><strong>【推荐】</strong>二方库不要有配置项，最低限度不要再增加配置项。</li>
+<li>【参考】为避免应用二方库的依赖冲突问题，二方库发布者应当遵循以下原则：<br>1 ）精简可控原则。移除一切不必要的<code>API</code>和依赖，只包含 <code>Service API</code>、必要的领域模型对象、<code>Utils</code>类、常量、枚举等。如果依赖其它二方库，尽量是<code>provided</code>引入，让二方库使用者去依赖具体版本号；无<code>log</code>具体实现，只依赖日志框架。<br>2 ）稳定可追溯原则。每个版本的变化应该被记录，二方库由谁维护，源码在哪里，都需要能方便查到。除非用户主动升级版本，否则公共二方库的行为不应该发生变化。</li>
+</ol>
+<h3 id="三-服务器"><a href="#三-服务器" class="headerlink" title="(三) 服务器"></a>(三) 服务器</h3><ol>
+<li><p><strong>【推荐】</strong>高并发服务器建议调小<code>TCP</code>协议的<code>time_wait</code>超时时间。</p>
+<blockquote>
+<p>说明：操作系统默认 <code>240</code> 秒后，才会关闭处于<code>time_wait</code>状态的连接，在高并发访问下，服务器端会因为处于<code>time_wait</code>的连接数太多，可能无法建立新的连接，所以需要在服务器上调小此等待值。</p>
+</blockquote>
+<p> 正例：在<code>linu</code>x服务器上请通过变更<code>/etc/sysctl.conf</code>文件去修改该缺省值（秒）：<br> <code>net.ipv4.tcp_fin_timeout = 30</code></p>
+</li>
+<li><p><strong>【推荐】</strong>调大服务器所支持的<code>最大文件句柄数</code>（<code>File Descriptor</code>，简写为<code>fd</code>）。</p>
+<blockquote>
+<p>说明：主流操作系统的设计是将<code>TCP</code>/<code>UDP</code>连接采用与文件一样的方式去管理，即一个连接对应于一个<code>fd</code>。主流的<code>linux</code>服务器默认所支持最大<code>fd</code>数量为 <code>1024</code> ，当并发连接数很大时很容易因为<code>fd</code>不足而出现”<code>open too many files</code>“错误，导致新的连接无法建立。 建议将<code>linux</code>服务器所支持的最大句柄数调高数倍（<code>与服务器的内存数量相关</code>）。</p>
+</blockquote>
+</li>
+<li><p><strong>【推荐】</strong>给JVM环境参数设置<code>-XX:+HeapDumpOnOutOfMemoryError</code>参数，让<code>JVM</code>碰到<code>OOM</code>场景时输出<code>dump</code>信息。</p>
+<blockquote>
+<p>说明：<code>OOM</code>的发生是有概率的，甚至相隔数月才出现一例，出错时的堆内信息对解决问题非常有帮助。</p>
+</blockquote>
+</li>
+<li><strong>【推荐】</strong>在线上生产环境，<code>JVM</code>的<code>Xms</code>和<code>Xmx</code>设置一样大小的内存容量，避免在<code>GC</code> 后调整堆大小带来的压力。</li>
+<li>【参考】服务器内部重定向使用<code>forward</code>；外部重定向地址使用<code>URL</code>拼装工具类来生成，否则会带来<code>URL</code>维护不一致的问题和潜在的安全风险。</li>
+</ol>
+<h2 id="七、设计规约"><a href="#七、设计规约" class="headerlink" title="七、设计规约"></a>七、设计规约</h2><ol>
+<li><p><strong>【强制】</strong>存储方案和底层数据结构的设计获得评审一致通过，并沉淀成为文档。</p>
+<blockquote>
+<p>说明：有缺陷的底层数据结构容易导致系统风险上升，可扩展性下降，重构成本也会因历史数据迁移和系统平滑过渡而陡然增加，所以，存储方案和数据结构需要认真地进行设计和评审，生产环境提交执行后，需要进行<code>double check</code>。</p>
+</blockquote>
+<p> 正例：评审内容包括存储介质选型、表结构设计能否满足技术方案、存取性能和存储空间能否满足业务发展、表或字段之间的辩证关系、字段名称、字段类型、索引等；数据结构变更（如在原有表中新增字段）也需要进行评审通过后上线。</p>
+</li>
+<li><p><strong>【强制】</strong>在需求分析阶段，如果与系统交互的<code>User</code>超过一类并且相关的<code>User Case</code>超过 <code>5</code> 个，使用用<code>例图</code>来表达更加清晰的结构化需求。</p>
+</li>
+<li><p><strong>【强制】</strong>如果某个业务对象的状态超过 <code>3</code> 个，使用<code>状态图</code>来表达并且明确状态变化的各个触发条件。</p>
+<blockquote>
+<p>说明：<code>状态图</code>的核心是对象状态，首先明确对象有多少种状态，然后明确两两状态之间是否存在直接转换关系，再明确触发状态转换的条件是什么。</p>
+</blockquote>
+<p> 正例：淘宝订单状态有已下单、待付款、已付款、待发货、已发货、已收货等。比如已下单与已收货这两种状态之间是不可能有直接转换关系的。</p>
+</li>
+<li><strong>【强制】</strong>如果系统中某个功能的调用链路上的涉及对象超过 <code>3</code> 个，使用<code>时序图</code>来表达并且明确各调用环节的输入与输出。<blockquote>
+<p>说明：<code>时序图</code>反映了一系列对象间的交互与协作关系，清晰立体地反映系统的调用纵深链路。</p>
+</blockquote>
+</li>
+<li><strong>【强制】</strong>如果系统中模型类超过 <code>5</code> 个，并且存在复杂的依赖关系，使用<code>类图</code>来表达并且明确类之间的关系。<blockquote>
+<p>说明：<code>类图</code>像建筑领域的施工图，如果搭平房，可能不需要，但如果建造蚂蚁Z空间大楼，肯定需要详细的施工图。</p>
+</blockquote>
+</li>
+<li><strong>【强制】</strong>如果系统中超过 <code>2</code> 个对象之间存在协作关系，并且需要表示复杂的处理流程，使用<code>活动图</code>来表示。<blockquote>
+<p>说明：活动图是流程图的扩展，增加了能够体现协作关系的对象泳道，支持表示并发等。</p>
+</blockquote>
+</li>
+<li><strong>【推荐】</strong>需求分析与系统设计在考虑主干功能的同时，需要充分评估<code>异常流程</code>与<code>业务边界</code>。<br> 反例：用户在淘宝付款过程中，银行扣款成功，发送给用户扣款成功短信，但是支付宝入款时由于断网演练产生异常，淘宝订单页面依然显示未付款，导致用户投诉。</li>
+<li><strong>【推荐】</strong>类在设计与实现时要符合单一原则。<blockquote>
+<p>说明：单一原则最易理解却是最难实现的一条规则，随着系统演进，很多时候，忘记了类设计的初衷。</p>
+</blockquote>
+</li>
+<li><p><strong>【推荐】</strong>谨慎使用继承的方式来进行扩展，优先使用<code>聚合</code>/<code>组合</code>的方式来实现。</p>
+<blockquote>
+<p>说明：不得已使用继承的话，必须符合<code>里氏代换</code>原则，此原则说父类能够出现的地方子类一定能够出现，比如，”把钱交出来”，钱的子类美元、欧元、人民币等都可以出现。</p>
+</blockquote>
+</li>
+<li><p><strong>【推荐】</strong>系统设计时，根据<code>依赖倒置</code>原则，尽量依赖抽象类与接口，有利于扩展与维护。</p>
+<blockquote>
+<p>说明：低层次模块依赖于高层次模块的抽象，方便系统间的解耦。</p>
+</blockquote>
+</li>
+<li><strong>【推荐】</strong>系统设计时，注意<code>对扩展开放</code>，对<code>修改闭合</code>。<blockquote>
+<p>说明：极端情况下，交付的代码都是不可修改的，同一业务域内的需求变化，通过模块或类的扩展来实现。</p>
+</blockquote>
+</li>
+<li><strong>【推荐】</strong>系统设计阶段，共性业务或公共行为抽取出来公共模块、公共配置、公共类、公共方法等，避免出现重复代码或重复配置的情况。<blockquote>
+<p>说明：随着代码的重复次数不断增加，维护成本指数级上升。</p>
+</blockquote>
+</li>
+<li><p><strong>【推荐】</strong>避免如下误解：<code>敏捷开发 = 讲故事 + 编码 + 发布</code>。</p>
+<blockquote>
+<p>说明：敏捷开发是快速交付迭代可用的系统，省略多余的设计方案，摒弃传统的审批流程，但核心关键点上的必要设计和文档沉淀是需要的。</p>
+</blockquote>
+<p>反例：某团队为了业务快速发展，敏捷成了产品经理催进度的借口，系统中均是勉强能运行但像面条一样的代码，可维护性和可扩展性极差，一年之后，不得不进行大规模重构，得不偿失。</p>
+</li>
+<li><strong>【参考】</strong>系统设计主要目的是<code>明确需求</code>、<code>理顺逻辑</code>、<code>后期维护</code>，次要目的用于指导编码。<blockquote>
+<p>说明：避免为了设计而设计，系统<code>设计文档</code>有助于后期的系统维护，所以设计结果需要进行分类归档保存。</p>
+</blockquote>
+</li>
+<li><strong>【参考】</strong>设计的本质就是<code>识别和表达系统难点</code>，找到系统的变化点，并隔离变化点。<blockquote>
+<p>说明：世间众多设计模式目的是相同的，即隔离系统变化点。</p>
+</blockquote>
+</li>
+<li><p>【参考】系统架构设计的目的：</p>
+<ul>
+<li><p>确定<code>系统边界</code>。确定系统在技术层面上的做与不做。</p>
+</li>
+<li><p>确定<code>系统内模块之间的关系</code>。确定模块之间的依赖关系及模块的宏观输入与输出。</p>
+</li>
+<li><p>确定<code>指导后续设计与演化的原则</code>。使后续的子系统或模块设计在规定的框架内继续演化。</p>
+</li>
+<li><p>确定<code>非功能性需求</code>。非功能性需求是指安全性、可用性、可扩展性等。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="八、附录"><a href="#八、附录" class="headerlink" title="八、附录"></a>八、附录</h2><h3 id="专有名词解释"><a href="#专有名词解释" class="headerlink" title="专有名词解释"></a>专有名词解释</h3><ol>
+<li><code>POJO（Plain Ordinary Java Object）</code>: 在本手册中，<code>POJO</code>专指只有<code>setter</code> / <code>getter</code> / <code>toString</code>的简单类，包括<code>DO</code>/<code>DTO</code>/<code>BO</code>/<code>VO</code>等。</li>
+<li><code>GAV（GroupId、ArtifactctId、Version</code>）: <code>Maven</code>坐标，是用来唯一标识<code>jar</code>包。</li>
+<li><code>OOP（Object Oriented Programming）</code>: 本手册泛指类、对象的编程处理方式。</li>
+<li><code>ORM（Object Relation Mapping）</code>: 对象关系映射，对象领域模型与底层数据之间的转换，本文泛指<code>iBATIS</code>, <code>mybatis</code>等框架。</li>
+<li><code>NPE（java.lang.NullPointerException）</code>: 空指针异常。</li>
+<li><code>SOA（Service-Oriented Architecture）</code>: 面向服务架构，它可以根据需求通过网络对松散以耦以的粗粒度应用组件进行分布式部署、组合和使用，有利于提升组件可重用性，可维护性。</li>
+<li><code>IDE（Integrated Development Environment）</code>: 用于提供程序开发环境的应用程序，一般包括代码编辑器、编译器、调试器和图形用户界面等工具，本《手册》泛指<code>IntelliJ IDEA</code>和<code>eclipse</code>。</li>
+<li><code>OOM（Out Of Memory）</code>: 源于<code>java.lang.OutOfMemoryError</code>，当<code>JVM</code>没有足够的内存来为对象分配空间并且垃圾回收器也无法回收空间时，系统出现的严重状况。</li>
+<li>一方库: 本工程内部子项目模块依赖的库（<code>jar</code>包）。</li>
+<li>二方库: 公司内部发布到中央仓库，可供公司内部其它应用依赖的库（<code>jar</code>包）。</li>
+<li>三方库: 公司之外的开源库（<code>jar</code>包）。</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/08/缓存那些事（四）/" rel="next" title="缓存那些事（四）">
+                <i class="fa fa-chevron-left"></i> 缓存那些事（四）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/10/mvn常用命令大全/" rel="prev" title="mvn常用命令大全">
+                mvn常用命令大全 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="kiwi">
+          <p class="site-author-name" itemprop="name">kiwi</p>
+           
+              <p class="site-description motion-element" itemprop="description">kiwi的个人博客</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">56</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">73</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/junfeng_wang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/junfengwang11" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.v2ex.com/" title="V2EX" target="_blank">V2EX</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.macx.cn/" title="麦克叉" target="_blank">麦克叉</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、编程规约"><span class="nav-number">1.</span> <span class="nav-text">一、编程规约</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-命名风格"><span class="nav-number">1.1.</span> <span class="nav-text">(一) 命名风格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-常量定义"><span class="nav-number">1.2.</span> <span class="nav-text">(二) 常量定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-代码格式"><span class="nav-number">1.3.</span> <span class="nav-text">(三) 代码格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-OOP规约"><span class="nav-number">1.4.</span> <span class="nav-text">(四) OOP规约</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五-集合处理"><span class="nav-number">1.5.</span> <span class="nav-text">(五) 集合处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六-并发处理"><span class="nav-number">1.6.</span> <span class="nav-text">(六) 并发处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七-控制语句"><span class="nav-number">1.7.</span> <span class="nav-text">(七) 控制语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八-注释规约"><span class="nav-number">1.8.</span> <span class="nav-text">(八) 注释规约</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#九-其它"><span class="nav-number">1.9.</span> <span class="nav-text">(九) 其它</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、异常日志"><span class="nav-number">2.</span> <span class="nav-text">二、异常日志</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-异常处理"><span class="nav-number">2.1.</span> <span class="nav-text">(一) 异常处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-日志规约"><span class="nav-number">2.2.</span> <span class="nav-text">(二) 日志规约</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、单元测试"><span class="nav-number">3.</span> <span class="nav-text">三、单元测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、安全规约"><span class="nav-number">4.</span> <span class="nav-text">四、安全规约</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、MySQL数据库"><span class="nav-number">5.</span> <span class="nav-text">五、MySQL数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-建表规约"><span class="nav-number">5.1.</span> <span class="nav-text">(一) 建表规约</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-索引规约"><span class="nav-number">5.2.</span> <span class="nav-text">(二) 索引规约</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-SQL语句"><span class="nav-number">5.3.</span> <span class="nav-text">(三) SQL语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-ORM映射"><span class="nav-number">5.4.</span> <span class="nav-text">(四) ORM映射</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、工程结构"><span class="nav-number">6.</span> <span class="nav-text">六、工程结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-应用分层"><span class="nav-number">6.1.</span> <span class="nav-text">(一) 应用分层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-二方库依赖"><span class="nav-number">6.2.</span> <span class="nav-text">(二) 二方库依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-服务器"><span class="nav-number">6.3.</span> <span class="nav-text">(三) 服务器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、设计规约"><span class="nav-number">7.</span> <span class="nav-text">七、设计规约</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、附录"><span class="nav-number">8.</span> <span class="nav-text">八、附录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#专有名词解释"><span class="nav-number">8.1.</span> <span class="nav-text">专有名词解释</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2018 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kiwi</span>
+  
+   <span style="margin-left:8px;">
+   <script src="http://s6.cnzz.com/stat.php?id=1274382859&web_id=1274382859" type="text/javascript"></script>
+   </span>
+  
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1274382859&web_id=1274382859" language="JavaScript"></script>
+  </div>
+
+
+
+</body>
+</html>
