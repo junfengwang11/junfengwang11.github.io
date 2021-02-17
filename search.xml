@@ -533,8 +533,8 @@
         <category>服务器</category>
       </categories>
       <tags>
-        <tag>centos6</tag>
         <tag>centos7</tag>
+        <tag>centos6</tag>
         <tag>centos5</tag>
         <tag>yum源</tag>
       </tags>
